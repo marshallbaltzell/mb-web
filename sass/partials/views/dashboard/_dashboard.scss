@@ -1,0 +1,185 @@
+.dashboard {
+
+  .charts {
+    padding: 2rem $qtr2;
+    overflow: hidden;
+
+    &, * {
+      @include box-sizing(border-box);
+    }
+
+    > div {
+      margin: $qtr2 0;
+      padding: 0 $qtr2;
+      width: 100%;
+      float: left;
+
+      .svg-block { width: 100%; }
+
+      @include breakpoint($breakpoint-desktop-and-portable) {
+        &.trans-line-chart:nth-child(1n+3) {
+          &, &.collapsed { width: 50%; }
+          &.expanded { width: 100%; }
+        }
+      }
+      @include breakpoint($breakpoint-palm) {
+        &.trans-line-chart {
+          &, &.collapsed, &.expanded { width: 100%; }
+        }
+      }
+    }
+
+    .chart-wrap {
+      @include border-radius(3px);
+      @include box-shadow(0 0 0 1px rgba($black, 0.2), 0 2px 2px rgba($black, 0.2));
+      background-color: #fdfdfd;
+
+      // Using this will contain the
+      // tooltip inside each chart.
+      //
+      position: relative;
+    }
+
+    .nvtooltip {
+      @include border-radius(2px);
+      @include box-shadow(0 0 3px rgba($black, 0.2));
+      pointer-events: visiblePainted !important;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+
+      > * {
+        @include box-sizing(border-box);
+        @include border-radius(0);
+        display: block;
+        padding: $qtr3 $qtr4;
+        margin: 0;
+        text-overflow: ellipsis;
+      }
+
+      h3 {
+        font-size: $qtr4;
+        line-height: $qtr4;
+        background-color: $pt-blue;
+        color: $off-white;
+      }
+
+      @include breakpoint($breakpoint-palm) {
+        // Need to adjust the tooltip's position
+        // and layout since it's not built for
+        // mobile support
+        width: 97% !important;
+        left: 1.5% !important;
+        margin-top: -10px;
+      }
+    }
+
+    .chart-header {
+      position: relative;
+      padding: $qtr3;
+      background-color: #e8e8e8;
+      border-bottom: 1px solid rgba($black, 0.2);
+
+      .chart-header-text {
+        @include open-sans-bold();
+        color: $black;
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      .config-item-wrapper {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        a {
+          display: inline-block;
+          padding: $qtr3;
+
+          @include breakpoint($breakpoint-desktop) {
+            &:hover {
+              background-color: $pt-blue;
+              color: $white;
+            }
+          }
+
+          &:active {
+          background-color: $pt-blue;
+          color: $white;
+          }
+
+          &:last-child {
+            @include border-top-right-radius(3px);
+          }
+
+          @include breakpoint($breakpoint-palm) {
+            &.expand-widget {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .nv-noData {
+      @include opacity(0.3);
+    }
+
+    .historical-bar-chart {
+      .svg-block {
+        height: 200px;
+        @include breakpoint($breakpoint-portable-and-palm) {
+          height: 175px;
+        }
+        .nv-legend > g {
+           > g:first-child {
+             @include translate(76px, 5px) ;
+           }
+           > g:last-child {
+             @include translate(0px, 4px) ;
+           }
+        }
+      }
+
+      .nvtooltip {
+        @include breakpoint($breakpoint-palm) {
+          margin-top: -70px;
+        }
+      }
+    }
+
+    .trans-line-chart {
+      // height: 200px;
+      // @include breakpoint($breakpoint-portable-and-palm) {
+      //   height: 175px;
+      // }
+      // ****
+      // info-block removed but could
+      // be added in future release if
+      // a use-case becomes available
+      // ****
+      //
+      // .line-chart-info-block {
+      //   @include open-sans-bold();
+      //   display: none;
+      //   float: left;
+      //   width: 10%;
+      //   text-align: center;
+      //   padding: $qtr4 0;
+      //     > div {
+      //       font-size: 2.5rem;
+      //       line-height: 2.5rem;
+      //       padding: $qtr2 0;
+      //     }
+
+      //   .refresh-time {
+      //     padding: $qtr3 0 0;
+      //     border-top: 1px solid rgba($black, 0.2);
+      //     font-size: 0.85rem;
+      //     line-height: 0.85rem;
+      //     color: rgba($black, 0.65);
+      //   }
+      // }
+    }
+  }
+}

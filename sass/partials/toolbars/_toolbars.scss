@@ -1,0 +1,995 @@
+// ===========================================================================
+//  TOOLBAR STRUCTURE AND STYLES
+// ===========================================================================
+//  Setup:
+//  Houses styles and structure for toolbar
+//  panels and widges
+//
+//
+// ========================================================
+// TOOLBAR WIDGETS
+// ========================================================
+//
+// 1. Filtering
+// 2. Transaction Count
+// 3. Pagination
+// 4. Refresh List
+// 5. Sorting
+//
+// 6. Dashboard Auto Reload/Refresh
+//
+
+
+//
+// General/Top Level Layout
+//
+.widgets {
+  display: block;
+  text-align: right;
+  padding: $qtr2;
+
+  > * {
+    margin: 0 $qtr1;
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+
+    @include breakpoint($breakpoint-portable) { margin: 0 $qtr2; }
+
+    &:first-child { margin-left: 0; }
+    &:last-child { margin-right: 0; }
+  }
+
+  @include breakpoint($breakpoint-portable-and-palm) {
+    padding: $qtr3 $qtr3 $qtr2;
+  }
+
+  #datatable-counter  { }
+  #datatable-filter   { }
+  #datatable-loader   { float: left; }
+  #datatable-pager    { float: left; }
+  #datatable-sorter   { }
+}
+
+// ========================================================
+//  1. FILTER WIDGET
+// ========================================================
+//
+// Using .ui-searchbox in place of #datatable-filter
+// to allow use in popups (not doubling ID usage)
+//
+.ui-searchbox {
+  @include box-sizing(border-box);
+  display: block;
+  z-index: 9;
+  width: 100%;
+
+  background-color: $light-gray;
+  border-bottom: 1px solid rgba($black, 0.2);
+
+  @include breakpoint($breakpoint-desktop) {
+    padding: $qtr2;
+  }
+  @include breakpoint($breakpoint-portable-and-palm) {
+    padding: $qtr2 $qtr3;
+  }
+
+  .search-field-wrapper {
+    @include border-radius(2px);
+    @include box-sizing(border-box);
+    @include box-shadow(inset 0 0 1px $black);
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    cursor: text;
+    background-color: $white;
+    outline: none;
+
+    @include breakpoint($breakpoint-desktop) {
+      padding: $qtr1 $qtr2 0.3rem;
+    }
+    @include breakpoint($breakpoint-portable) {
+      padding: $qtr3 $qtr3 0.65rem;
+    }
+    @include breakpoint($breakpoint-palm) {
+      padding: 0.65rem $qtr2;
+    }
+
+    .search-field {
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: transparent;
+
+      @include breakpoint($breakpoint-palm) {
+        width: 82%;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .search-filter {
+      @include opacity(0.4);
+      font-size: $qtr4;
+      margin-right: $qtr2;
+    }
+
+    .selected-filter-item {
+      @include border-radius(2px);
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0.8rem;
+      color: $black;
+      background-color: #dddddd;
+
+      @include breakpoint($breakpoint-desktop-and-portable) {
+        margin: -0.35rem $qtr4 -0.25rem -0.25rem;
+        padding: 0 0 0 $qtr2;
+      }
+      @include breakpoint($breakpoint-palm) {
+        margin: 0 $qtr1 $qtr2;
+        padding: 0 0 0 $qtr2;
+      }
+
+      .filterbox-tag-remove {
+        font-size: inherit;
+        line-height: inherit;
+        color: rgba($black, 0.3);
+        border-left: 1px solid rgba($black, 0.3);
+
+        @include breakpoint($breakpoint-desktop) {
+          margin: 0 0 0 $qtr1;
+          padding: $qtr1 $qtr2;
+        }
+        @include breakpoint($breakpoint-portable) {
+          margin: 0 0 0 $qtr1;
+          padding: 0.45rem $qtr2;
+        }
+        @include breakpoint($breakpoint-palm) {
+          padding: $qtr2;
+          margin: 0 0 0 $qtr2;
+        }
+      }
+
+      &.marked-filter-item, &:hover, &:active {
+        @include box-shadow(0 1px 1px rgba($black, 0.35));
+        color: $off-white;
+        cursor: default;
+        background-color: $pt-blue !important;
+
+        .filterbox-tag-remove {
+          color: $off-white;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .clear-filter {
+      @include opacity(0);
+      top: 0;
+      right: 0;
+      margin: 0;
+      cursor: text;
+      position: absolute;
+
+      @include breakpoint($breakpoint-desktop) {
+        padding: 0.7rem;
+      }
+      @include breakpoint($breakpoint-portable) {
+        font-size: 1.5rem;
+        padding: $qtr3 $qtr4 0.65rem 1.15rem;
+      }
+      @include breakpoint($breakpoint-palm) {
+        padding: $qtr3;
+      }
+
+      &.show-btn {
+        @include breakpoint($breakpoint-desktop) {
+          @include opacity(0.5);
+        }
+        @include breakpoint($breakpoint-portable) {
+          @include opacity(0.35);
+        }
+
+        &:hover, &:active {
+          @include opacity(0.75);
+          cursor: pointer !important;
+        }
+      }
+    }
+  }
+
+  &.filterbox-active .search-field-wrapper {
+    @include box-shadow(inset 0 0 1px $pt-blue);
+  }
+
+  &.captured-trans {
+    overflow: hidden;
+    //
+    // Different structure for the
+    // Captured Transactions panel
+    //
+    .search-field-wrapper {
+      @include border-right-radius(0);
+      float: left;
+
+      @include breakpoint($breakpoint-desktop) {
+        width: 90% !important;
+      }
+      @include breakpoint($breakpoint-portable) {
+        width: 83% !important;
+      }
+      @include breakpoint($breakpoint-palm) {
+        width: 78% !important;
+      }
+    }
+
+    .search-field {
+      display: inline-block;
+      width: auto;
+    }
+  }
+
+  &.filter-with-button {
+    .search-field-wrapper {
+      @include border-top-right-radius(0);
+      @include border-bottom-right-radius(0);
+      width: 75%;
+      float: left;
+
+      @include breakpoint($breakpoint-portable) {
+        width: 80%;
+      }
+    }
+
+    .filterbox-results {
+      width: 75%;
+
+      @include breakpoint($breakpoint-portable) {
+        width: 80%;
+      }
+    }
+
+    .clear-filter {
+      @include breakpoint($breakpoint-desktop) {
+        right: 8.5rem;
+      }
+      @include breakpoint($breakpoint-portable) {
+        right: 13.25rem;
+      }
+    }
+  }
+
+  .filterbox-submit {
+    @include border-top-left-radius(0);
+    @include border-bottom-left-radius(0);
+    margin: 0;
+    display: block;
+    overflow: auto;
+    padding-right: 0;
+    padding-left: 0;
+
+    @include breakpoint($breakpoint-palm) {
+      font-size: 1.1rem;
+      line-height: $qtr4;
+    }
+  }
+
+  .filterbox-results {
+    @include box-sizing(border-box);
+    @include box-shadow(0 0 3px rgba($black, 0.1));
+    position: relative;
+    display: block;
+    z-index: 9;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -2px;
+    text-align: left;
+    background-color: $white;
+    border: 1px solid $gray;
+
+    .filterbox-results-list {
+      overflow-y:auto;
+      height: 100%;
+      padding: 0 0 $qtr1 0;
+
+      @include breakpoint($breakpoint-desktop) { max-height: 650px; }
+      @include breakpoint($breakpoint-portable) { max-height: 400px; }
+      @include breakpoint($breakpoint-palm) { max-height: 335px; }
+
+      li {
+        display: block;
+
+        &.filterbox-subtitle {
+          @include open-sans-bold();
+          margin: $qtr4 $qtr2 0.333rem $qtr2;
+          cursor: default;
+          border-bottom: 1px solid $light-gray;
+
+          @include breakpoint($breakpoint-desktop) {
+            font-size: 0.9rem;
+          }
+          @include breakpoint($breakpoint-portable-and-palm) {
+            font-size: 1.25rem;
+            margin: 1.75rem $qtr4 $qtr1 $qtr4;
+          }
+        }
+
+        &.filterbox-list-item {
+          cursor: pointer;
+
+          @include breakpoint($breakpoint-desktop) {
+            font-size: 0.85rem;
+            padding: 0.25rem 1rem;
+          }
+          @include breakpoint($breakpoint-portable-and-palm) {
+            font-size: 1.1rem;
+            padding: $qtr4 2rem;
+          }
+
+          &.ui-focus, &:hover, &:focus {
+            @include box-shadow(none);
+            outline: none;
+            background-color: $light-gray;
+          }
+
+          &:active {
+            background-color: $pt-blue;
+            color: $white;
+          }
+        }
+      }
+    }
+
+    &.hidden {
+      display: none !important;
+    }
+  }
+}
+
+// ========================================================
+//  2. TRANSACTION COUNT WIDGET
+// ========================================================
+//
+//
+#datatable-counter {
+  .total-count {
+    @include border-radius(3px);
+    border: 1px solid rgba($black, 0.1);
+    background-color: rgba($white, 0.5);
+
+    @include breakpoint($breakpoint-desktop) {
+      font-size: $qtr4;
+      padding: 0.7rem $qtr4;
+    }
+    @include breakpoint($breakpoint-portable) {
+      padding: 0.9rem $qtr4;
+    }
+    @include breakpoint($breakpoint-palm) {
+      display: none;
+    }
+
+    span {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+}
+
+// ========================================================
+//  3. PAGING WIDGET
+// ========================================================
+//
+//
+#datatable-pager {
+
+  .ui-controlgroup {
+    @include border-radius(2px);
+    margin:0;
+
+    .ui-controlgroup-controls {
+      @include breakpoint($breakpoint-desktop) {
+        &:hover {
+          background-color: rgba($white, 0.5);
+          .ui-btn {
+            @include box-shadow(inset 0 0 0 1px $gray);
+          }
+        }
+      }
+    }
+  }
+
+  .ui-btn {
+    @include text-shadow(none);
+    color: $black;
+
+    @include breakpoint($breakpoint-desktop) {
+      @include box-shadow(none);
+      &:hover,
+      &.ui-btn-hover-c {
+        background-color: $white;
+      }
+    }
+    @include breakpoint($breakpoint-portable-and-palm) {
+      @include box-shadow(inset 0 0 0 1px $gray);
+      &,
+      &.ui-btn-hover-c {
+        background-color: $white;
+      }
+    }
+
+    &:active,
+    &.ui-btn-active,
+    &.ui-focus {
+      @include box-shadow(inset 0 0 0 1px $gray, inset 0 3px 0 $gray);
+      background-color: $white;
+
+      .ui-select & {
+        @include box-shadow(inset 0 0 0 1px $gray, inset 0 3px 0 $gray);
+        background-color: $white;
+      }
+    }
+
+    &.ui-disabled {
+      background: none;
+      .ui-btn-inner {
+        @include opacity(0.25);
+      }
+    }
+
+    .ui-btn-inner {
+      @include box-sizing(border-box);
+      @include opacity(0.75);
+      border: none;
+      font-size: inherit;
+      line-height: inherit;
+
+      @include breakpoint($breakpoint-desktop) {
+        padding: $qtr2;
+      }
+      @include breakpoint($breakpoint-portable) {
+        padding: 0.8rem 0.9rem;
+      }
+      @include breakpoint($breakpoint-palm) {
+        padding: 0.9rem;
+      }
+
+      .ui-btn-text,
+      .paging-current-page {
+        font-size: inherit;
+      }
+    }
+  }
+
+  .paging-previous {
+    margin-right: -1px;
+    &.ui-btn {
+      // border-right-width: 0;
+    }
+
+    .ui-btn-text {
+      @include svg_icon_chevron_left($qtr4);
+    }
+  }
+
+  .paging-next {
+    margin-left: -1px;
+    .ui-btn-text {
+      @include svg_icon_chevron_right($qtr4);
+    }
+  }
+
+  .paging-previous,
+  .paging-next {
+    .ui-btn-text {
+      display: block;
+
+      @include breakpoint($breakpoint-portable) {
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+    }
+  }
+
+  .ui-select {
+    &.ui-disabled {
+      .ui-btn-inner {
+        @include opacity(0.5);
+      }
+    }
+    &:hover {
+      @include box-shadow(inset 0 0 0 1px $black);
+    }
+    &:active {
+      @include box-shadow(inset 0 0 0 1px $gray, inset 0 3px 0 $gray);
+    }
+    .ui-btn {
+      border-width: 0;
+    }
+
+    .ui-btn-inner {
+      @include breakpoint($breakpoint-desktop) {
+        // padding-right: 1.5rem;
+        padding: 0.3rem 1.5rem 0.3rem $qtr2;
+      }
+      @include breakpoint($breakpoint-portable) {
+        padding: 0.7rem 1.5rem 0.7rem $qtr4;
+      }
+      @include breakpoint($breakpoint-palm) {
+        padding: 0.65rem 1.75rem 0.7rem $qtr3;
+      }
+
+      .ui-btn-text {
+        text-align: left;
+        @include text-shadow(none);
+      }
+
+      .pagin-current-page {
+        @include text-shadow(none);
+      }
+
+      .ui-icon {
+        @include breakpoint($breakpoint-desktop) {
+          @include svg_icon_chevron_down($qtr3);
+          right: $qtr2;
+          margin-top: -5px;
+        }
+        @include breakpoint($breakpoint-portable-and-palm) {
+          @include svg_icon_chevron_down($qtr3);
+          right: $qtr3;
+          margin-top: -3px;
+        }
+      }
+    }
+  }
+}
+
+// ========================================================
+//  4. REFRESH/RELOAD WIDGET
+// ========================================================
+//
+//
+#datatable-loader { }
+
+// ========================================================
+//  5. SORT WIDGET
+// ========================================================
+//
+//
+#datatable-sorter {
+
+  &.sorter-show {
+    .sort-body { display: block; }
+  }
+
+  &.sorter-hide {
+    .sort-body { display: none; }
+  }
+
+  .sort-icon {
+    display: inline-block;
+
+    @include breakpoint($breakpoint-desktop)  { padding: $qtr2 $qtr3 }
+    @include breakpoint($breakpoint-portable) { padding: 0.95rem 1.75rem 0.95rem 1.15rem; }
+    @include breakpoint($breakpoint-palm)     { padding: 0.9rem 1.75rem 0.9rem $qtr4; }
+
+    .sort-icon-wrapper {
+      position: relative;
+
+      @include breakpoint($breakpoint-desktop) {
+        font-size:   $qtr4;
+        line-height: $qtr4;
+        margin-right: $qtr2;
+      }
+      @include breakpoint($breakpoint-portable-and-palm) {
+        font-size:   1.15rem;
+        line-height: 1.15rem;
+      }
+
+      .fa { line-height: inherit; }
+
+      .fa-list-ul {
+        position: relative;
+        margin-right: 0.15rem;
+      }
+
+      .fa-chevron-up, .fa-chevron-down {
+        position: absolute;
+
+        @include breakpoint($breakpoint-desktop) { font-size: 0.7rem; }
+        @include breakpoint($breakpoint-portable-and-palm) { font-size: 0.9rem; }
+      }
+
+      .fa-chevron-up {
+        @include breakpoint($breakpoint-desktop) { top: -2px; }
+        @include breakpoint($breakpoint-portable-and-palm) { top: -3px; }
+      }
+
+      .fa-chevron-down {
+        @include breakpoint($breakpoint-desktop) { bottom: -3px; }
+        @include breakpoint($breakpoint-portable-and-palm) { bottom: -3px; }
+      }
+    }
+  }
+
+  .sort-body {
+    @include border-radius(2px);
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: $pt-blue;
+
+    @include breakpoint($breakpoint-desktop) { min-width: 10rem; }
+    @include breakpoint($breakpoint-portable-and-palm) { min-width: 20rem; }
+
+    .sort-title {
+      float: left;
+      text-align: left;
+      color: $light-gray;
+      margin: 0;
+
+      @include breakpoint($breakpoint-desktop) { padding: $qtr2; }
+      @include breakpoint($breakpoint-portable-and-palm) { padding: $qtr4 0 0 $qtr4; }
+    }
+
+    .sort-icon {
+      float: right;
+      color: $light-gray;
+      border-left: 1px solid rgba($black, 0.05);
+
+      @include breakpoint($breakpoint-portable-and-palm) {
+        &:active { background-color: darken($pt-blue, 3%); }
+      }
+    }
+
+    .sort-panel {
+      display: block;
+      position: relative;
+      clear: both;
+
+      .sort-btn-wrapper {
+        margin: 0;
+        padding: 1px;
+
+        button {
+          @include box-shadow(none);
+          @include border-radius(0);
+
+          width: 100%;
+          border: none;
+          padding: 0;
+          margin: 0;
+          display: block;
+          text-align: left;
+          background-color: $white;
+          border-bottom: 1px solid rgba($black ,0.1);
+
+          &:last-child {
+            @include border-bottom-left-radius(1px);
+            @include border-bottom-right-radius(1px);
+            border-bottom: none;
+          }
+
+          @include breakpoint($breakpoint-desktop) {
+            &:hover {
+              background-color: darken($white, 5);
+            }
+          }
+          &:active {
+            background-color: darken($white, 7.5);
+          }
+
+          .ui-btn-inner {
+            display: block;
+            border: none;
+            cursor: pointer;
+
+            @include breakpoint($breakpoint-desktop) { padding: $qtr2; }
+            @include breakpoint($breakpoint-portable) { padding: $qtr4; }
+            @include breakpoint($breakpoint-palm) { padding: 1.25rem; }
+
+            .ui-btn-text {
+              display: block;
+              color: $black;
+
+              .fa-stack {
+                width: $qtr4;
+                height: $qtr4;
+                line-height: $qtr4;
+
+                @include breakpoint($breakpoint-portable) { margin-right: $qtr2; }
+                @include breakpoint($breakpoint-palm) { margin-right: $qtr4; }
+
+                .fa {
+                  position: absolute;
+
+                  @include breakpoint($breakpoint-desktop)  { font-size: 0.7rem; }
+                  @include breakpoint($breakpoint-portable) { font-size: 0.85rem; }
+                  @include breakpoint($breakpoint-palm)     { font-size: $qtr4; }
+                }
+
+                .fa-chevron-up {
+                  bottom: 6px;
+                  color: $mid-gray;
+                }
+
+                .fa-chevron-down {
+                  color: $mid-gray;
+
+                  @include breakpoint($breakpoint-desktop) { top: 5px; }
+                  @include breakpoint($breakpoint-portable) { top: 3px; }
+                  @include breakpoint($breakpoint-palm) { top: 5px; }
+                }
+              }
+
+              &.sort-asc {
+                .fa-stack .fa-chevron-up { color: $black; }
+              }
+
+              &.sort-des {
+                .fa-stack .fa-chevron-down { color: $black; }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========================================================
+//  6. DASHBOARD AUTO RELOAD/REFRESH WIDGET
+// ========================================================
+//
+//
+#dashboard-refresh {
+  @include border-radius(2px);
+
+  &,
+  .refresh,
+  .auto-refresh,
+  .last-refresh {
+    float: left;
+  }
+
+  //
+  // .btn styles
+  //
+  .btn, .last-refresh {
+    @include box-shadow(0 0 0 1px $gray);
+  }
+  .btn {
+    @include breakpoint($breakpoint-portable-and-palm) {
+      @include box-shadow(0 0 0 1px $gray, inset 0 -3px 0 0 $gray);
+    }
+    &:active {
+      @include box-shadow(0 0 0 1px $gray, inset 0 3px 0 0 $gray);
+    }
+  }
+  .refresh .btn {
+    @include border-top-right-radius(0);
+    @include border-bottom-right-radius(0);
+  }
+  .auto-refresh .btn {
+    @include border-top-left-radius(0);
+    @include border-bottom-left-radius(0);
+    position: relative;
+    z-index: 2;
+  }
+
+  .last-refresh {
+    cursor: default;
+    margin-left: 1px;
+    margin-right: 1px;
+
+    @include breakpoint($breakpoint-desktop) {
+      padding: 0.45rem;
+    }
+    @include breakpoint($breakpoint-portable) {
+      padding: 0.90rem;
+      background-color: $white;
+    }
+    @include breakpoint($breakpoint-palm) {
+      padding: 0.85rem;
+      background-color: $white;
+    }
+  }
+
+  .auto-refresh {
+    &.dropdown-show {
+      @include border-bottom-right-radius(0);
+
+      .btn {
+        @include box-shadow(1px -1px 0 0 $gray);
+        cursor: default;
+      }
+      .btn,
+      .last-refresh {
+        background-color: $white;
+      }
+
+      .dropdown {
+        @include breakpoint($breakpoint-portable-and-palm) {
+          margin-top: -1px;
+        }
+      }
+    }
+  }
+}
+
+.dashboard {
+  .dropdown {
+    @include box-sizing(border-box);
+    @include border-bottom-left-radius(2px);
+    @include border-bottom-right-radius(2px);
+    @include box-shadow(0 0 0 1px $gray);
+    z-index: 1;
+    min-width: 15rem;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    padding: $qtr2 $qtr1;
+    text-align: left !important;
+    white-space: nowrap;
+    background-color: $white;
+
+    @include breakpoint($breakpoint-desktop-and-portable) {
+      max-height: 40rem;
+    }
+    @include breakpoint($breakpoint-palm) {
+      max-height: 28rem;
+    }
+
+    h6 {
+      padding: 0 1.5rem 0.1rem $qtr2;
+      margin: $qtr2 $qtr2 $qtr4;
+      border-bottom: 1px solid $gray;
+    }
+
+    small {
+      font-size: 65%;
+    }
+
+    label {
+      @include border-radius(2px);
+      padding: $qtr3 $qtr4;
+      display: block;
+      cursor: pointer;
+
+      @include breakpoint($breakpoint-desktop) {
+        &:hover {
+          background-color: rgba($black, 0.05);
+        }
+      }
+
+      &:active {
+        background-color: $pt-blue;
+        color: $white;
+      }
+    }
+
+    input {
+      margin: 0 $qtr2 0 0;
+      vertical-align: bottom;
+    }
+  }
+}
+
+
+
+
+// ========================================================
+//  HELP WIDGET
+// ========================================================
+//  Not located with the rest
+//  of the toolbar widgets, but
+//  can still remain here.
+//
+#datatable-helper { }
+
+
+// Form Help
+//
+#form-helper {
+  margin: 0 0 0 $qtr2;
+  position: relative;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+.fa.fa-times.filterbox-tag-remove.popup {
+  float: right;
+}
+
+// ===========================================================================
+//  SELECTION TOOLBAR
+// ===========================================================================
+//  Setup:
+//  Houses styles and structure for
+//  selection toolbar.
+//
+//
+.panel-selection-bar {
+  @include box-sizing(border-box);
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 999;
+  padding: $qtr2;
+  overflow: visible;
+  background-color: lighten($dark-blue, 3%);
+
+  @include breakpoint($breakpoint-portable-and-palm) {
+    padding: $qtr3;
+  }
+
+  .selection-count {
+    @include text-shadow(none);
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 1.5rem;
+    border-right: 1px solid rgba($white ,0.25);
+    color: $off-white;
+    background: none;
+
+    @include breakpoint($breakpoint-desktop) {
+      padding: $qtr2 1.5rem $qtr2 $qtr4;
+    }
+    @include breakpoint($breakpoint-portable) {
+      padding: 0.95rem 1.5rem 0.75rem $qtr4;
+    }
+    @include breakpoint($breakpoint-palm) {
+      position: absolute;
+      left: 20%;
+      width: 60%;
+      padding: 0.85rem 0 0 0;
+      text-align: center;
+      font-size: 1.14rem;
+      line-height: 1.14rem;
+      border: none;
+    }
+  }
+}
+
+.toolbar-slide-start {
+  top: -10rem;
+}
+
+
+// ========================================================
+//  DIALOG TOOLBAR
+// ========================================================
+//  Used in forms to house
+//  Cancel/Save buttons and
+//  any additional actions.
+//
+.dialog.panel {
+  .panel-footer {
+    text-align: right;
+
+    > * {
+      margin: 0 $qtr1;
+
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include breakpoint($breakpoint-palm) {
+        &.cancel-button {
+          float: left;
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,234 @@
+//
+//==========================================================
+//  SVG ICONS
+//==========================================================
+//
+$path: "../images/svg/";
+
+//
+// Some notes from Marshall Baltzell:
+//
+// Some icons currently use Font Awesome.
+// The idea is to merge all usage into one type.
+// Whether it's custom SVG or font icons
+// is still undecided.
+//
+// %placeholders don't @extend across @media-queries
+// so they need to be duplicated for each breakpoint.
+//
+// A temporary workaround until I can implement a function
+// that will dynamically @extend to each breakpoint on its own.
+//
+// Reference: http://www.sitepoint.com/cross-media-query-extend-sass/
+//
+@include breakpoint($breakpoint-desktop){
+  %icon_base_lg {
+    background: transparent;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+  }
+  %icon_left_lg {
+      display: inline-block;
+      margin-right: 0.5rem;
+      content: "";
+  }
+  %icon_right_lg {
+      display: inline-block;
+      margin-left: 0.5rem;
+      content: "";
+  }
+}
+
+@include breakpoint($breakpoint-portable) {
+  %icon_base_md {
+    background: transparent;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+  }
+  %icon_left_md {
+      display: inline-block;
+      margin-right: 0.5rem;
+      content: "";
+  }
+  %icon_right_md {
+      display: inline-block;
+      margin-left: 0.5rem;
+      content: "";
+  }
+}
+
+@include breakpoint($breakpoint-palm) {
+  %icon_base_sm {
+    background: transparent;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+  }
+  %icon_left_sm {
+      display: inline-block;
+      margin-right: 0.5rem;
+      content: "";
+  }
+  %icon_right_sm {
+      display: inline-block;
+      margin-left: 0.5rem;
+      content: "";
+  }
+}
+
+// TODO: fix @extend issue with @media-query outer selection
+//
+// @mixin svg_icon_mixin($name, $width: auto, $height: $width) {
+//   height: $height;
+//   width: $width;
+//   background-image: url($path + $name + ".svg");
+// }
+
+
+// @mixin svg_icon($name, $location: 'center', $width: auto, $height: $width) {
+//   @if $location == 'left' {
+//     &::before {
+//       @extend %icon_left_lg;
+//       @extend %icon_left_md;
+//       @extend %icon_left_sm;
+//       @include svg_icon_mixin($name, $width, $height);
+//       @extend %icon_base_lg;
+//       @extend %icon_base_md;
+//       @extend %icon_base_sm;
+//     }
+//   }
+//   @else if $location == 'right' {
+//     &::after {
+//       @extend %icon_right_lg;
+//       @extend %icon_right_md;
+//       @extend %icon_right_sm;
+//       @include svg_icon_mixin($name, $width, $height);
+//       @extend %icon_base_lg;
+//       @extend %icon_base_md;
+//       @extend %icon_base_sm;
+//     }
+//   }
+//   @else  {
+//     @include svg_icon_mixin($name, $width, $height);
+//     @extend %icon_base_lg;
+//     @extend %icon_base_md;
+//     @extend %icon_base_sm;
+//   }
+// }
+//
+// Once resolved replace temporary mixins.
+@mixin svg_icon_base ($name, $width, $height) {
+  height: $height;
+  width: $width;
+  background-image: url($path + $name + ".svg");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+}
+@mixin svg_icon_outer () {
+  display: inline-block;
+  content: "";
+}
+@mixin svg_icon($name, $location: 'center', $width: auto, $height: $width) {
+  @if $location == 'left' {
+    &::before {
+      @include svg_icon_base($name, $width, $height);
+      @include svg_icon_outer();
+      margin-right: $qtr2;
+    }
+  }
+  @else if $location == 'right' {
+    &::after {
+      @include svg_icon_base($name, $width, $height);
+      @include svg_icon_outer();
+      margin-left: $qtr2;
+    }
+  }
+  @else {
+    @include svg_icon_base($name, $width, $height);
+    @include svg_icon_outer();
+  }
+}
+
+
+@mixin svg_icon_chevron_down ($size) {
+  @include svg_icon("chevron_down", 'center', $size);
+}
+@mixin svg_icon_chevron_up ($size) {
+  @include svg_icon("chevron_up", 'center', $size);
+}
+@mixin svg_icon_chevron_left ($size) {
+  @include svg_icon("chevron_left", 'center', $size);
+}
+@mixin svg_icon_chevron_right ($size) {
+  @include svg_icon("chevron_right", 'center', $size);
+}
+
+@mixin svg_icon_chevron_down_white ($size) {
+  @include svg_icon("chevron_down_white", 'center', $size);
+}
+@mixin svg_icon_chevron_up_white ($size) {
+  @include svg_icon("chevron_up_white", 'center', $size);
+}
+@mixin svg_icon_chevron_left_white ($size) {
+  @include svg_icon("chevron_left_white", 'center', $size);
+}
+@mixin svg_icon_chevron_right_white ($size) {
+  @include svg_icon("chevron_right_white", 'center', $size);
+}
+
+@mixin svg_icon_circle_black ($size) {
+  @include svg_icon("circle_black", 'center', $size);
+}
+@mixin svg_icon_circle_white ($size) {
+  @include svg_icon("circle_white", 'center', $size);
+}
+
+@mixin svg_icon_x_black ($size) {
+  @include svg_icon("x_black", 'center', $size);
+}
+@mixin svg_icon_x_white ($size) {
+  @include svg_icon("x_white", 'center', $size);
+}
+
+@mixin svg_icon_user_white ($size) {
+  @include svg_icon("user_white", 'center', $size);
+}
+@mixin svg_icon_user_black ($size) {
+  @include svg_icon("user_black", 'center', $size);
+}
+
+@mixin svg_icon_system_black ($size) {
+  @include svg_icon("system_black", 'center', $size);
+}
+@mixin svg_icon_system_white ($size) {
+  @include svg_icon("system_white", 'center', $size);
+}
+
+@mixin svg_icon_letter_L ($size) {
+  @include svg_icon("letter_L", 'center', $size);
+}
+@mixin svg_icon_letter_U ($size) {
+  @include svg_icon("letter_U", 'center', $size);
+}
+
+@mixin svg_icon_location_black ($size) {
+  @include svg_icon("location_black", 'center', $size);
+}
+
+@mixin svg_icon_check_black ($size) {
+  @include svg_icon("check_black", 'center', $size);
+}
+@mixin svg_icon_check_white ($size) {
+  @include svg_icon("check_white", 'center', $size);
+}
+
+@mixin svg_icon_menu_dots_black ($size) {
+  @include svg_icon("menu_dots_black", "center", $size);
+}
+@mixin svg_icon_menu_dots_white ($size) {
+  @include svg_icon("menu_dots_white", "center", $size);
+}

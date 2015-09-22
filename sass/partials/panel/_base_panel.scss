@@ -1,0 +1,163 @@
+// ===========================================================================
+//  BASE .PANEL
+// ===========================================================================
+//  Setup:
+//  Defaults reusable for all media types
+//
+//
+.panel {
+  // @include background-clip(border-box);
+  // overflow: hidden;
+
+  // &,
+  // .panel-heading,
+  // .panel-content,
+  // .panel-footer {
+  //   @include box-sizing(border-box);
+  // }
+
+  .panel-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    min-height: 25rem;
+  }
+}
+
+.panel {
+  margin: 0 auto;
+  // padding: 1rem 2rem 0 2rem;
+  max-width: 1200px;
+
+  @include breakpoint($breakpoint-desktop) {
+    width: 90%;
+  }
+
+  @include breakpoint($breakpoint-portable-and-palm) {
+    width: 100%;
+  }
+
+  .panel-heading {
+    // overflow: visible;
+    // background: none;
+    //
+    // @include breakpoint($breakpoint-desktop) { padding: $qtr2; }
+    // @include breakpoint($breakpoint-portable-and-palm) { padding: $qtr3; }
+
+    > * {
+      // @include text-shadow(0 2px rgba($black, 0.25));
+      // display: inline-block;
+      // padding: $qtr1 0 0.4rem;
+      // white-space: nowrap;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      // color: $off-white;
+      //
+      //
+      // @include breakpoint($breakpoint-desktop) {
+        @include open-sans-light();
+        font-size: 1.5rem;
+        line-height: normal;
+      // }
+      // @include breakpoint($breakpoint-portable) {
+      //   @include open-sans-regular();
+      //   padding: $qtr3 0 0 0;
+      //   font-size: 1.65rem;
+      //   line-height: 1.65rem;
+      //   max-width: 80%;
+      // }
+      // @include breakpoint($breakpoint-palm) {
+      //   @include open-sans-regular();
+      //   font-size: 1.4rem;
+      //   line-height: 1.4rem;
+      //   max-width: 68%;
+      // }
+    }
+  }
+
+  // .panel-content { }
+  .panel-footer {
+    background: none;
+  }
+}
+
+// ===========================================================================
+//  VERTICAL HEIGHTS (PANEL)
+// ===========================================================================
+//  Setup:
+//  use calc() for IE & Firefox
+//  use flexbox for modern browsers
+//
+//
+.csscalc {
+  .panel {
+
+    .panel-heading,
+    .panel-selection-bar {
+      // @include breakpoint($breakpoint-desktop) { height: 3.1rem; }
+      // @include breakpoint($breakpoint-portable) { height: 4.5rem; }
+      // @include breakpoint($breakpoint-palm) { height: 4.35rem; }
+    }
+
+    .panel-content {
+      // @include breakpoint($breakpoint-desktop) { @include calc(height, "100% - 3.1rem"); }
+      // @include breakpoint($breakpoint-portable) { @include calc(height, "100% - 4.5rem"); }
+      // @include breakpoint($breakpoint-palm) { @include calc(height, "100% - 4.35rem"); }
+    }
+
+    // no automatic footer since calc() does not
+    // work conditionally
+    //
+    // .panel-footer { }
+  }
+
+  .panel.with-footer {
+
+    .panel-heading,
+    .panel-selection-bar {
+      // @include breakpoint($breakpoint-desktop) { height: 3.1rem; }
+      // @include breakpoint($breakpoint-portable) { height: 4.5rem; }
+      // @include breakpoint($breakpoint-palm) { height: 4.35rem; }
+    }
+
+    .panel-content {
+      // @include breakpoint($breakpoint-desktop) { @include calc(height, "100% - 6.2rem"); }
+      // @include breakpoint($breakpoint-portable) { @include calc(height, "100% - 8.5rem"); }
+      // @include breakpoint($breakpoint-palm) { @include calc(height, "100% - 8.7rem"); }
+    }
+
+    .panel-footer {
+      // @include breakpoint($breakpoint-desktop) { height: 3.1rem; }
+      // @include breakpoint($breakpoint-portable) { height: 4rem; }
+      // @include breakpoint($breakpoint-palm) { height: 4.35rem; }
+    }
+  }
+}
+
+.flexbox.no-csscalc,
+.flexboxlegacy.no-csscalc.no-flexbox  {
+  .panel {
+    @include display-box;
+    @include box-orient(vertical);
+    @include box-align(stretch);
+
+    .panel-heading,
+    .panel-selection-bar {
+      @include box-flex(0);
+
+      // @include breakpoint($breakpoint-desktop) { height: 3.1rem; }
+      // @include breakpoint($breakpoint-portable) { height: 4.5rem; }
+      // @include breakpoint($breakpoint-palm) { height: 4.35rem; }
+    }
+
+    .panel-content { @include box-flex(1); }
+
+    .panel-footer {
+      @include box-flex(0);
+
+      // @include breakpoint($breakpoint-desktop) { height: 3.1rem; }
+      // @include breakpoint($breakpoint-portable) { height: 4rem; }
+      // @include breakpoint($breakpoint-palm) { height: 4.35rem; }
+    }
+  }
+}

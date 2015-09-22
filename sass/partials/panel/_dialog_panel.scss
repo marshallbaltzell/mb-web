@@ -1,0 +1,162 @@
+//
+// Dialog panel.
+// Base style is set using jQuery UI.
+// This is an override stylesheet.
+//
+
+// Theme override componenets:
+//
+// ui-dialog:                 The outer container of the dialog.
+// ui-dialog-titlebar:        The title bar containing the dialog's title and close button.
+// ui-dialog-title:           The container around the textual title of the dialog.
+// ui-dialog-titlebar-close:  The dialog's close button.
+// ui-dialog-content:         The container around the dialog's content. This is also the element the widget was instantiated with.
+// ui-dialog-buttonpane:      The pane that contains the dialog's buttons. This will only be present if the buttons option is set.
+// ui-dialog-buttonset:       The container around the buttons themselves.
+// ui-widget-overlay:         The mask that covers all content behind the dialog.
+
+
+.ui-widget-overlay {
+  @include opacity(1);
+  background-image: none;
+  background-color: rgba($black, 0.5);
+}
+
+.ui-dialog {
+  padding: 0;
+
+  .ui-dialog-titlebar {
+    background: none;
+    border: none;
+    padding: 1rem;
+
+    .ui-dialog-title {
+      @include open-sans-semibold();
+      font-weight: normal;
+      color: $black;
+    }
+
+    button {
+      border: none;
+      background: none;
+      color: $black;
+
+      &.ui-dialog-titlebar-close {
+        @include svg_icon('x_black', 'center', $qtr4);
+        @include opacity(0.5);
+        margin: -$qtr2 0 0 0;
+        right: $qtr3;
+
+        // &::before {
+        //   content: "\00d7"; // &times;
+        //   font-size: 2rem;
+        // }
+
+
+      }
+    }
+  }
+
+  .ui-dialog-content {
+    background-color: $white;
+
+    * {
+      @include open-sans-regular();
+    }
+
+    fieldset {
+      margin: 1rem 0;
+    }
+
+    legend {
+      font-size: $qtr4;
+    }
+  }
+
+  .ui-dialog-buttonpane {
+    margin: 0;
+  }
+
+  .form-group-sm {
+    @include open-sans-regular();
+    font-weight: normal;
+
+    .control-label {
+      font-size: 1rem;
+      padding-top: 8px;
+    }
+  }
+}
+
+
+
+// #dialog {
+//   @include box-shadow(0 0 4px rgba(0,0,0,0.75));
+//   position: absolute;
+//   overflow: hidden;
+//   z-index: 999;
+//   height: 100%;
+//   top: 0;
+//   background-color: $pt-blue;
+// }
+
+/*
+ * Setup defaults reusable for all media types
+ */
+// .dialog-panel-wrapper {
+//   height: 100%;
+// }
+//
+// .dialog.panel {
+//   .panel-header {
+//     @include breakpoint($breakpoint-palm) {
+//       border-bottom:1px solid lighten($dark-blue, 35);
+//     }
+//     .header-text {
+//       position: relative;
+//     }
+//   }
+//
+//   .panel-content {
+//     padding: 2rem $qtr2 $qtr2;
+//
+//     .error-box {
+//       @include box-sizing(border-box);
+//       @include border-radius(3px);
+//       display: block;
+//       padding: $qtr4;
+//       margin: 0 0 $qtr4 0;
+//       background-color: lighten($red, 50);
+//
+//       .content {
+//         ul {
+//           @include open-sans-bold();
+//           color: $red;
+//
+//           li {
+//             @include open-sans-regular();
+//             list-style-type: disc;
+//             margin: 0 0 0 2rem;
+//             padding: $qtr4 0;
+//             color: $red;
+//
+//             &:last-child {
+//               padding-bottom: 0;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+//
+//   .panel-footer {
+//     @include box-shadow(0 1px 1px 0 rgba($black, 0.15));
+//     padding: $qtr2;
+//     background-color: $light-gray;
+//     border-bottom: 1px solid rgba($black, 0.25);
+//
+//     @include breakpoint($breakpoint-palm) {
+//       padding: $qtr3 $qtr2;
+//     }
+//   }
+// }

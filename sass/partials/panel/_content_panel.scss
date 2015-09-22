@@ -1,0 +1,55 @@
+// ===========================================================================
+//  CONTENT STYLES
+// ===========================================================================
+//  Setup:
+//  Custom styles for top-level panel styles
+//
+
+.panel {
+  @include box-shadow(none);
+  background: none;
+  border: none;
+
+  .panel-heading {
+    @include border-top-left-radius(3px);
+    @include border-top-right-radius(3px);
+    padding: 1rem;
+    border: 1px solid #dddddd;
+    border-width: 1px 1px 0;
+    background-color: $pt-blue;
+    color: $white;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .panel-body {
+    @include border-bottom-left-radius(3px);
+    @include border-bottom-right-radius(3px);
+    min-height: 25rem;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-width: 0 1px 1px;
+    background-color: $white;
+  }
+
+  .panel-footer {
+    background: none;
+    @include opacity(0.5);
+  }
+
+  .panel-toolbar {
+    padding: 1rem;
+    margin-bottom: 25px;
+    background-color: #fefefe;
+    border-bottom: 1px solid #dddddd;
+
+    .input-group[class*="col-"] {
+      float: left;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+}

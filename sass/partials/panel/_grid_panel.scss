@@ -1,0 +1,160 @@
+// ===========================================================================
+//  .GRID.PANEL
+// ===========================================================================
+//  Setup:
+//  .grid.panel structuring
+//
+//
+.grid.panel {
+  .panel-header-with-toolbar {
+    @include background-clip(border-box);
+    background-color: $light-gray;
+
+    @include breakpoint($breakpoint-palm) {
+      background-color: #eeeeee;
+    }
+
+    .toolbar { @include box-sizing(border-box); }
+  }
+
+  // .panel-content { }
+  // .panel-footer { }
+}
+
+
+// ===========================================================================
+//  VERTICAL HEIGHTS (.GRID.PANEL)
+// ===========================================================================
+//  Setup:
+//  use calc() for IE & Firefox
+//  use flexbox for modern browsers
+//
+//  Note:
+//  Dashboard does not have a datatable
+//  header, so it will need a smaller
+//  toolbar size than the rest.
+//
+.csscalc {
+  .grid.panel {
+
+    // FF bug with the setting menu.  The menu is
+    // absolutely positioned and width 100% would
+    // fall to the page width
+    position: relative;
+
+    .panel-header-with-toolbar {
+      position: relative;
+      z-index: 2;
+
+      @include breakpoint($breakpoint-desktop) { height: 8.1rem; }
+      @include breakpoint($breakpoint-portable) { height: 10.75rem; }
+      @include breakpoint($breakpoint-palm) { height: 8.5rem; }
+    }
+
+    .panel-content {
+      z-index: 1;
+      position: relative;
+
+      @include breakpoint($breakpoint-desktop) { @include calc(height, "100% - 8.1rem"); }
+      @include breakpoint($breakpoint-portable) { @include calc(height, "100% - 10.75rem"); }
+      @include breakpoint($breakpoint-palm) { @include calc(height, "100% - 8.5rem"); }
+    }
+
+    // no automatic footer since calc() does not
+    // work conditionally
+    //
+    // .panel-footer { }
+
+    &.dashboard {
+      .panel-header-with-toolbar {
+        @include breakpoint($breakpoint-desktop) { height: 6.1rem; }
+        @include breakpoint($breakpoint-portable) { height: 8.75rem; }
+      }
+
+      .panel-content {
+        @include breakpoint($breakpoint-desktop) { @include calc(height, "100% - 6.1rem"); }
+        @include breakpoint($breakpoint-portable) { @include calc(height, "100% - 8.75rem"); }
+      }
+    }
+  }
+
+  .grid.panel.with-footer {
+    .panel-header-with-toolbar {
+      position: relative;
+      z-index: 2;
+
+      @include breakpoint($breakpoint-desktop) { height: 8.1rem; }
+      @include breakpoint($breakpoint-portable) { height: 10.75rem; }
+      @include breakpoint($breakpoint-palm) { height: 8.5rem; }
+    }
+
+    .panel-content {
+      position: relative;
+      z-index: 1;
+
+      @include breakpoint($breakpoint-desktop) { @include calc(height, "100% - 8.1rem"); }
+      @include breakpoint($breakpoint-portable) { @include calc(height, "100% - 16rem"); }
+      @include breakpoint($breakpoint-palm) { @include calc(height, "100% - 8.5rem"); }
+    }
+
+    .panel-footer {
+      position: relative;
+      z-index: 2;
+
+      @include breakpoint($breakpoint-desktop) { height: 3.1rem; }
+      @include breakpoint($breakpoint-portable) { height: 5.25rem; }
+      @include breakpoint($breakpoint-palm) { height: 5.25rem; }
+    }
+  }
+}
+
+.flexbox.no-csscalc, .flexboxlegacy.no-csscalc.no-flexbox  {
+  .grid.panel {
+    @include display-box;
+    @include box-align(stretch);
+    @include box-orient(vertical);
+    position: relative;
+
+    .panel-header-with-toolbar {
+      @include box-flex(0);
+      z-index: 2;
+      position: relative;
+
+      @include breakpoint($breakpoint-desktop) { height: 8.1rem; }
+      @include breakpoint($breakpoint-portable) { height: 10.75rem; }
+      @include breakpoint($breakpoint-palm) { height: 8.5rem; }
+    }
+
+    .panel-content {
+      @include box-flex(1);
+      z-index: 1;
+    }
+
+    .panel-footer {
+      @include box-flex(0);
+      z-index: 2;
+
+      @include breakpoint($breakpoint-desktop) { height: 3.1rem; }
+      @include breakpoint($breakpoint-portable) { height: 5.25rem; }
+      @include breakpoint($breakpoint-palm) { height: 5.25rem; }
+    }
+
+    &.dashboard {
+      .panel-header-with-toolbar {
+        @include breakpoint($breakpoint-desktop) { height: 7.15rem; }
+        @include breakpoint($breakpoint-portable) { height: 8.75rem; }
+      }
+    }
+  }
+}
+.datatable-footer {
+  display: block;
+  background-color: $pt-blue;
+
+  .last-updated-at {
+    display: block;
+    padding: $qtr4;
+    text-align: center;
+    color: $white;
+  }
+}

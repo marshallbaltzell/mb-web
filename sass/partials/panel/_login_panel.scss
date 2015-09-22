@@ -1,0 +1,226 @@
+
+body.login {
+
+  background-color: $pt-blue;
+  color: $white;
+
+  .panel {
+    background: none;
+    border: none;
+
+    @include breakpoint($breakpoint-desktop) {
+      max-width: 40%;
+    }
+
+    .panel-heading,
+    .panel-body,
+    .panel-footer {
+      background: none;
+      border: none;
+    }
+  }
+
+  // .dialog-mask {
+  //   position: absolute;
+  //   z-index: 99999;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: $pt-blue;
+  //
+  //   overflow-y: scroll;
+  //   -webkit-overflow-scrolling: touch;
+  // }
+  //
+  // .floating-dialog-wrapper {
+  //   @include breakpoint($breakpoint-desktop)  { @include center(100%, 100%, 22rem, 30rem); }
+  //   @include breakpoint($breakpoint-portable) { @include center(100%, 100%, 30rem, 35rem); }
+  //   @include breakpoint($breakpoint-palm)     {
+  //     @include center(100%, 100%, 90%, 35rem);
+  //     padding: 4rem 0 0 0;
+  //   }
+  //
+  //   @include breakpoint($breakpoint-palm-landscape) {
+  //     padding: 2rem 0 0 0;
+  //   }
+  //
+  //   .panel {
+  //     @include box-shadow(none);
+  //     position: absolute;
+  //     background: none;
+  //     overflow: visible;
+  //
+  //     .panel-content {
+  //       position: relative;
+  //       padding: 0;
+  //       overflow: visible;
+  //
+  //       .form-box {
+  //         position: relative;
+  //         background: none;
+  //         border: none;
+  //         padding-bottom: 3rem;
+  //       }
+  //     }
+  //   }
+  // }
+  //
+  // input,
+  // .btn,
+  // .error,
+  // .version {
+  //   display: block;
+  //   width: 100%;
+  // }
+  //
+  // .help,
+  // .error,
+  // .version {
+  //   letter-spacing: 0.05rem;
+  //   @include breakpoint($breakpoint-desktop)  { font-size: 0.85rem; }
+  //   @include breakpoint($breakpoint-portable-and-palm) { font-size: $qtr4; }
+  // }
+  //
+  // .pt-logo {
+  //   width: 80%;
+  //   height: 4rem;
+  //   margin: 0 auto;
+  //   background: url("../images/svg/pt_logo_white.svg") 50% 50% no-repeat;
+  //   background-size: contain;
+  //
+  //   @include breakpoint($breakpoint-palm) {
+  //     width: 90%;
+  //   }
+  // }
+  //
+  // .error,
+  // .version {
+  //   text-align: center;
+  //   color: $off-white;
+  // }
+  //
+  // .version {
+  //   @include breakpoint($breakpoint-desktop)  { margin-bottom: 2.5rem; }
+  //   @include breakpoint($breakpoint-portable) { margin-bottom: 3.25rem; }
+  //   @include breakpoint($breakpoint-palm-portrait)     { margin-bottom: 4rem; }
+  //   @include breakpoint($breakpoint-palm-landscape)     { margin-bottom: 1rem; }
+  // }
+  //
+  // .error {
+  //   @include text-shadow(none);
+  //   @include border-radius(3px);
+  //   @include box-sizing(border-box);
+  //   word-wrap: break-word;
+  //   background-color: $red;
+  //
+  //   @include breakpoint($breakpoint-desktop-and-portable) {
+  //     position: relative;
+  //     margin-top: 2.5rem;
+  //     padding: $qtr2;
+  //   }
+  //   @include breakpoint($breakpoint-palm) {
+  //     position: absolute;
+  //     bottom: 0;
+  //     padding: $qtr4 $qtr3;
+  //   }
+  // }
+  //
+  // .form-content {
+  //   margin: 0 0 2rem;
+  //
+  //   .form-item-container {
+  //     margin: 0;
+  //
+  //     &:first-child {
+  //       margin-bottom: $qtr2;
+  //     }
+  //
+  //     .form-item-label {
+  //       @include open-sans-light();
+  //       margin: 0 0 $qtr1 0;
+  //       font-size: inherit;
+  //       text-transform: none;
+  //       color: $white;
+  //     }
+  //
+  //     .form-item-body {
+  //       position: relative;
+  //
+  //       .clear-btn {
+  //         @include svg_icon_x_black(100%);
+  //         @include opacity(0.35);
+  //         position: absolute;
+  //         height: 100%;
+  //         top: 0;
+  //         right: 0;
+  //         background-size: 30%;
+  //
+  //         @include breakpoint($breakpoint-desktop) {
+  //           width: 2rem;
+  //         }
+  //         @include breakpoint($breakpoint-portable-and-palm) {
+  //           width: 3rem;
+  //         }
+  //       }
+  //     }
+  //
+  //     .form-textbox {
+  //       float: none;
+  //     }
+  //   }
+  // }
+  //
+  // input {
+  //   @include box-shadow(none !important);
+  //   outline: none;
+  //
+  //   @include breakpoint($breakpoint-desktop) {
+  //     padding: $qtr2;
+  //   }
+  //   @include breakpoint($breakpoint-portable) {
+  //     padding: $qtr3;
+  //     font-size: 1.25rem;
+  //   }
+  //   @include breakpoint($breakpoint-palm) {
+  //     padding: $qtr4;
+  //     font-size: 1.25rem;
+  //   }
+  // }
+  //
+  // .help {
+  //   position: absolute;
+  //   top: 5.5rem;
+  //   right: 0;
+  //
+  //   @include breakpoint($breakpoint-palm-landscape) {
+  //     top: 4rem;
+  //   }
+  //
+  //   a {
+  //     @include box-shadow(none);
+  //
+  //     @include breakpoint($breakpoint-desktop) {
+  //       padding: $qtr2 0.55rem 0.45rem 0.65rem;
+  //       font-size: 1.35rem;
+  //       line-height: 1.35rem;
+  //       &:hover {
+  //         background-color: rgba($black, 0.1);
+  //       }
+  //     }
+  //     @include breakpoint($breakpoint-portable-and-palm) {
+  //       display: inline-block;
+  //       width: auto;
+  //       padding: $qtr3 0.9rem 0.7rem $qtr4;
+  //       font-size: 1.75rem;
+  //       line-height: 1.75rem;
+  //       background: none;
+  //       color: rgba($black, 0.75);
+  //     }
+  //
+  //     &:active {
+  //       background-color: rgba($black, 0.2);
+  //     }
+  //   }
+  // }
+}

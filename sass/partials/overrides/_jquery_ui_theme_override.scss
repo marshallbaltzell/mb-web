@@ -1,0 +1,9 @@
+.ui-widget {
+   input,
+   select,
+   textarea,
+   button {
+    @include open-sans-regular();
+    font-size: inherit;
+  }
+}

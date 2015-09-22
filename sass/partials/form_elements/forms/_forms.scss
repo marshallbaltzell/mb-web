@@ -1,0 +1,1061 @@
+// ===========================================================================
+//  FORM STRUCTURE
+// ===========================================================================
+//  Setup:
+//  Top-level structure used in forms and form sections.
+//
+//
+.form-content {
+  &, * {
+    @include box-sizing(border-box);
+  }
+
+  .form-left,
+  .form-bottom {
+    float: left;
+    padding-right: 0.5rem;
+  }
+
+  .form-right {
+    float: right;
+    padding-left: 0.5rem;
+  }
+
+  .form-full { width: 100%; }
+
+  @include breakpoint($breakpoint-desktop) {
+    .form-left,
+    .form-bottom { width: 75%; }
+    .form-right { width: 25%; }
+  }
+  @include breakpoint($breakpoint-portable) {
+    .form-left,
+    .form-bottom { width: 70%; }
+    .form-right {  width: 30%; }
+  }
+  @include breakpoint($breakpoint-palm) {
+    .form-left,
+    .form-right,
+    .form-bottom {
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+  }
+}
+
+.form-item-container {
+  &,
+  .form-item-label,
+  .form-item-body {
+    @include background-clip(border-box);
+  }
+}
+
+.form-textbox {
+  @include appearance(none);
+  @include border-radius(2px);
+  border: none;
+  outline: none;
+  margin: 0;
+  font-size: 1.15rem;
+
+  @include breakpoint($breakpoint-desktop) {
+    padding: 0.4rem $qtr2 0.4rem;
+    font-size: 0.85rem;
+  }
+  @include breakpoint($breakpoint-portable) {
+    padding: $qtr3 $qtr4 0.7rem;
+  }
+  @include breakpoint($breakpoint-palm) {
+    padding: 0.65rem $qtr2;
+  }
+
+  &:not(.search-field) {
+    width: 100%;
+    display: block;
+  }
+}
+
+.disabled-form-item {
+    .form-textbox {
+      @include box-shadow(none);
+      background-color: $white;
+    }
+  }
+
+.disable-field {
+  .form-textbox {
+    @include box-shadow(none);
+    background: none;
+    border: none;
+  }
+}
+
+.form-textbox {
+
+  &:disabled, &[disabled] {
+    @include box-shadow(inset 0 0 0 1px rgba($black, 0.15));
+    @include opacity(1); // Override any User Agent Stylesheets
+    background-color: rgba($white, 0.9);
+    color: rgba($black, 0.75);
+  }
+
+  &:not(:disabled), &:not([disabled]) {
+    @include box-shadow(inset 0 0 0 1px rgba($black, 0.25));
+    background-color: $white;
+    color: $black;
+  }
+
+  &:focus {
+    @include box-shadow(inset 0 0 0 1px $pt-blue);
+  }
+}
+
+
+// TODO:
+// This isn't used in forms. Put with
+// appropriate CSS doc (login?).
+//
+.form-box {
+  @include box-sizing(border-box);
+  @include background-clip(border-box);
+  @include border-radius (3px);
+  background-color: $off-white;
+  border: 1px solid $gray;
+}
+
+
+// ===========================================================================
+//  TOOLTIP
+// ===========================================================================
+//  Setup:
+//  In-App help for multiple inputs in IP Address Groups form.
+//
+//
+.ui-tooltip.ui-widget.ui-corner-all.ui-widget-content.tool {
+  @include border-radius(3px);
+  @include box-sizing(border-box);
+  @include box-shadow(0 1px 5px rgba($black, 0.5));
+
+  background:none;
+  background-color: rgba($black, 0.9);
+  color: $white;
+  border: none;
+
+  @include breakpoint($breakpoint-desktop) {
+    padding: $qtr4;
+  }
+  @include breakpoint($breakpoint-portable-and-palm) {
+    padding: 2rem 3rem;
+  }
+  @include breakpoint($breakpoint-palm) {
+    right: $qtr4 !important; // Override jQuery setup;
+    left: $qtr4 !important;
+  }
+
+  .ui-tooltip-content p {
+    @include breakpoint($breakpoint-desktop) {
+      font-size: 0.85rem;
+    }
+    @include breakpoint($breakpoint-portable-and-palm) {
+      font-size: 1.15rem;
+    }
+  }
+
+  // Tooltip arrow
+  @include breakpoint($breakpoint-desktop-and-portable) {
+    &::after {
+      left: 100%;
+      top: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba($black, 0);
+      border-left-color: rgba($black, 0.9);
+      border-width: $qtr2;
+      margin-top: -$qtr2;
+    }
+  }
+
+
+  .tt-close {
+    @include svg_icon_x_white($qtr4);
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: $qtr4;
+  }
+}
+
+.tooltip-arrow {
+  display: none;
+}
+
+
+// ===========================================================================
+//  FORM STYLES
+// ===========================================================================
+//  Setup:
+//  Styles used in forms and form sections.
+//
+//
+.form-content {
+
+  // ==================================
+  //  General Class Styles
+  //
+  .uppercased {
+    text-transform: uppercase;
+  }
+
+  .error {
+    color: $red !important;
+  }
+
+  .select-button {
+    display: block;
+
+    @include breakpoint($breakpoint-desktop-and-portable){
+      overflow: hidden;
+    }
+    @include breakpoint ($breakpoint-palm) {
+      @include border-top-left-radius(0);
+      @include border-top-right-radius(0);
+      margin: 0;
+      width: 100%;
+      float: none;
+      text-align: center;
+
+      span {
+        display: inline-block;
+      }
+    }
+  }
+
+
+  // ==================================
+  //  General Structure Styles
+  //
+  .form-el-wrap {
+    @include border-radius(2px);
+    // @include box-shadow(0 1px 1px rgba(0,0,0,0.1));
+
+    margin: 0 0 $qtr4 0;
+    border: 1px solid rgba(0,0,0,0.15);
+    background-color: #f3f3f3;
+
+    @include breakpoint($breakpoint-desktop) {
+      padding: $qtr1 $qtr4 $qtr2 $qtr4;
+    }
+    @include breakpoint($breakpoint-portable) {
+      padding: 0 $qtr2;
+    }
+    @include breakpoint($breakpoint-palm) {
+      padding: 0 $qtr2;
+    }
+  }
+
+  .form-item-container {
+    clear: both;
+    @include breakpoint($breakpoint-desktop) {
+      margin: $qtr4 0;
+      padding: 0;
+    }
+    @include breakpoint($breakpoint-portable) {
+      margin: 0;
+      padding: $qtr4 0;
+      &:last-child {
+        padding-bottom: $qtr3;
+      }
+    }
+    @include breakpoint($breakpoint-palm) {
+      margin: $qtr2 0 $qtr4 0;
+    }
+  }
+
+  .form-item-body {
+    display: block;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .form-item-label {
+    @include open-sans-bold();
+    @include text-shadow(none);
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 $qtr1 $qtr1;
+
+
+    @include breakpoint($breakpoint-portable) {
+      font-size: 1.15rem;
+      line-height: 1.15rem;
+      overflow: visible;
+    }
+
+    @include breakpoint($breakpoint-palm) {
+      font-size: 75%;
+      text-transform: uppercase;
+    }
+
+    &.info {
+      .fa-info-circle.info {
+        @include opacity(0.4);
+        float: right;
+
+        @include breakpoint($breakpoint-desktop) {
+          margin-right: 10%;
+          font-size: $qtr4;
+          &:hover {
+            cursor: help;
+          }
+        }
+        @include breakpoint($breakpoint-portable) {
+          margin-right: 10%;
+          font-size: 1.15rem;
+        }
+        @include breakpoint($breakpoint-palm) {
+          margin-right: 18%;
+          font-size: 1.15rem;
+        }
+      }
+    }
+  }
+
+  // .form-textbox {
+  //   @include border-radius(3px);
+  //   border: 1px solid rgba($black, 0.25);
+
+  //   @include breakpoint($breakpoint-desktop) {
+  //     margin: 0 $qtr2 0 0;
+  //     padding: 0.6rem $qtr4;
+  //   }
+  //   @include breakpoint($breakpoint-portable) {
+  //     margin: 0 $qtr2 0 0;
+  //     padding: 0.7rem $qtr4;
+  //   }
+  //   @include breakpoint($breakpoint-palm) {
+  //     margin: 0;
+  //     padding: $qtr2;
+  //   }
+  // }
+
+  // .disabled-form-item {
+  //   .form-textbox {
+  //     background-color: $off-white;
+  //     @include box-shadow(none);
+  //   }
+  // }
+
+  // .disable-field {
+  //   .form-textbox {
+  //     @include box-shadow(none);
+  //     background: none;
+  //     border: none;
+  //   }
+  // }
+
+  // input.form-textbox {
+  //   @include appearance(none);
+  //   outline: none;
+  //   font-size: inherit;
+  //   line-height: inherit;
+
+  //   &:focus {
+  //     @include box-shadow(inset 0 1px 2px rgba($black, 0.15), 0 0 3px lighten($pt-blue, 35));
+  //     border-color: $pt-blue;
+  //   }
+
+  //   &:disabled, &[disabled] {
+  //     @include box-shadow(none);
+  //     @include opacity(1);
+  //     background-color: rgba($black, 0.1);
+  //   }
+
+  //   &:not(:disabled), &:not([disabled]) {
+  //     @include box-shadow(inset 0 1px 2px rgba($black, 0.15));
+  //     background-color: $white;
+  //   }
+  // }
+
+
+  // ==================================
+  //  Form sections structure
+  //  and styles
+  //
+  .form-radio-wrap {
+
+    > .form-item-label {
+      @include open-sans-bold();
+      padding: 0;
+      margin: 0.5rem 0 0 0;
+    }
+
+    .radio-buttons {
+      @include border-radius(0);
+      display: block;
+      border-bottom: 1px solid rgba($black, 0.1);
+
+      &:last-child {
+        border: none;
+      }
+
+      .ui-radio {
+        @include border-radius(0);
+        @include box-sizing(border-box);
+        display: inline-block;
+        width: 50%;
+
+        // Audit, Message, Capture: the first two
+        // btns are yes/no and don't need to be
+        // full width. The third input, Inherit
+        // should span 100% to show  inheritance data.
+        &:first-child {
+          float: left;
+        }
+
+        // "Inherited" radio button
+        &:nth-child(3) {
+          width: 100%;
+        }
+
+        input { display: none; }
+
+        .ui-btn {
+          border: none;
+          background: none;
+
+          @include breakpoint($breakpoint-desktop) {
+            &:hover {
+              background-color: rgba(0,0,0, 0.05);
+            }
+          }
+
+          @include breakpoint($breakpoint-palm) {
+            label{
+              border-left:  none;
+              border-right: none;
+            }
+
+            &:first-child label {
+             border-top: none;
+           }
+
+            &:last-child label  {
+              border-bottom: none;
+            }
+          }
+
+          &.ui-radio-off {
+            color: #aaaaaa;
+
+            .ui-icon-radio-off {
+              @include box-shadow(0 1px 1px rgba(0,0,0,0.25));
+              background-color: $white;
+            }
+
+            &:active {
+              @include box-shadow(inset 0 0 5px rgba(0,0,0,0.25));
+              background-color: rgba(0,0,0, 0.05);
+
+              .ui-icon-radio-off {
+                @include box-shadow(none);
+              }
+            }
+          }
+
+          &.ui-radio-on {
+            color: $black;
+
+            .ui-icon-radio-on {
+              @include box-shadow(inset 0 1px 0 rgba(0,0,0, 0.25));
+              background: $pt-blue url('../images/shape-circle.svg') 50% 50% no-repeat;
+              background-size: 0.45rem;
+
+              @include breakpoint($breakpoint-portable-and-palm) {
+                background-size: 0.5rem;
+              }
+            }
+          }
+
+          .ui-btn-inner {
+            border-top: none;
+            padding: $qtr2 0 $qtr2 1.75rem;
+
+            @include breakpoint($breakpoint-palm) {
+              padding: $qtr3 0 $qtr3 2rem;
+            }
+
+            .ui-btn-text {
+              @include open-sans-semibold();
+              @include text-shadow(none);
+
+              display: block;
+              font-size: 0.85rem;
+              line-height: 0.85rem;
+
+              @include breakpoint($breakpoint-portable) {
+                @include open-sans-regular();
+                font-size: 0.9rem;
+                line-height: 0.9rem;
+              }
+
+              .item-description {
+                @include opacity(0.85);
+                @include open-sans-italic();
+                font-weight: normal;
+                display: block;
+              }
+            }
+          }
+
+          .ui-icon {
+            background: none;
+            border: 1px solid rgba(0,0,0,0.25);
+            overflow: visible;
+
+            @include breakpoint($breakpoint-desktop-and-portable) {
+              @include border-radius($qtr2);
+              left: $qtr2;
+              width: $qtr4;
+              height: $qtr4;
+              margin-top: -$qtr2;
+            }
+
+            @include breakpoint($breakpoint-palm) {
+              @include border-radius(0.6rem);
+              left: $qtr2;
+              width: 1.2rem;
+              height: 1.2rem;
+              margin-top: -0.6rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .form-checkbox-wrap {
+    padding: 0;
+
+    input {
+      display: none;
+    }
+
+    .form-item-container {
+      margin: 0;
+      padding: 0;
+    }
+
+    .ui-btn {
+      @include border-radius(0);
+      margin: 0;
+      padding: $qtr1 0;
+      background: none;
+      border: none;
+
+      .ui-btn-inner {
+        padding: $qtr2 $qtr2 $qtr2 3rem;
+        border: none;
+
+        .ui-btn-text {
+          font-weight: normal;
+        }
+
+        .ui-icon {
+          @include box-shadow(inset 0 0 0 1px rgba($black, 0.2));
+          left: $qtr4;
+          margin-top: -0.55rem;
+
+          &.ui-icon-checkbox-on {
+            @include svg_icon_check_white(1.1rem);
+            background-color: $pt-blue;
+            background-size: 70%;
+          }
+        }
+      }
+
+      &.ui-checkbox-off {
+        .ui-icon-checkbox-off {
+          width: 1.1rem;
+          height: 1.1rem;
+          background: none;
+        }
+      }
+
+      @include breakpoint($breakpoint-desktop) {
+        &:hover {
+          background-color: rgba($black, 0.025);
+        }
+      }
+
+      &:active {
+        @include box-shadow(inset 0 1px 0 rgba($black, 0.1));
+        background-color: rgba($black, 0.05);
+
+        .ui-icon {
+           @include box-shadow(inset 0 0 0 1px rgba($black, 0.2), 0 1px rgba($black, 0.1));
+        }
+      }
+    }
+
+    .form-item-transaction {
+      padding: $qtr3 $qtr4 $qtr2 $qtr4;
+
+      @include breakpoint($breakpoint-portable) {
+        padding: $qtr2 $qtr4;
+      }
+
+      .form-item-label {
+        display: inline-block;
+        width: auto;
+        margin: 0;
+      }
+
+      .form-item-results {
+        display: inline-block;
+        float: right;
+
+        .fa-check {
+          @include opacity(0.75);
+          margin-left: $qtr2;
+        }
+      }
+    }
+
+    &.accepted  { background-color: lighten($green, 20); }
+    &.rejected  { background-color: lighten($orange, 20); }
+    &.failed    { background-color: lighten($red, 20); }
+  }
+
+  .form-input-wrap {
+    .form-item-body {
+      // .form-textbox {
+      //   width: 100%;
+      //   float: left;
+      //   @include breakpoint($breakpoint-palm) {
+      //     float: none;
+      //   }
+      // }
+
+      &.with-btn {
+        .form-textbox {
+          @include breakpoint($breakpoint-desktop-and-portable) {
+            & , &:disabled {
+              float: left;
+              width: 80%;
+              margin-right: $qtr2;
+            }
+          }
+
+          @include breakpoint($breakpoint-palm) {
+            @include border-bottom-left-radius(0);
+            @include border-bottom-right-radius(0);
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  .form-field-wrap {
+
+    .disable-field {
+      .field-block {
+
+        &,
+        .form-item-label,
+        .form-textbox {
+          display: block;
+          width: 100%;
+        }
+
+        .form-textbox {
+          color: rgba($black, 0.5);
+          text-overflow: ellipsis;
+        }
+
+        &:nth-child(1n+2) {
+          margin-top: 1rem;
+        }
+
+        &:last-child {
+          .form-textbox {
+            color: rgba($black, 1);
+          }
+        }
+      }
+    }
+
+    .form-textbox {
+      @include box-shadow(inset 0 0 0 1px rgba($black, 0.15));
+      @include opacity(1); // Override any User Agent Stylesheets
+      background-color: rgba($white, 0.9);
+      color: rgba($black, 0.5);
+
+    }
+  }
+
+  .form-label-wrap {
+    .captures-header {
+      display: block;
+      margin: $qtr4 0;
+      font-weight: bold;
+    }
+
+    .label-value, .label-field {
+      border-bottom: 1px solid rgba(0,0,0, 0.05);
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    .form-item-body {
+      overflow: hidden;
+    }
+
+    .form-item-label {
+      width: auto;
+      margin: 0 0 0 $qtr2;
+      font-size: 95%;
+      float: left;
+      vertical-align: top;
+    }
+
+    .form-textbox {
+      @include box-shadow(none);
+      float: right;
+      max-width: 45%;
+      margin: 0 $qtr2 $qtr2 0;
+      padding: 0;
+      vertical-align: top;
+      text-align: right;
+      border: none;
+      background: none;
+
+      .undervalue {
+        display: block;
+        font-size: inherit;
+      }
+
+    }
+  }
+
+  .form-row-wrap {
+    .form-item-body {
+      position: relative;
+
+      .asterisk {
+        @include opacity(0.75);
+        position: absolute;
+
+        @include breakpoint($breakpoint-desktop-and-portable) {
+          top: 2rem;
+          left: 0.5rem;
+        }
+        @include breakpoint($breakpoint-palm) {
+          top: 1.75rem;
+          left: 0.5rem;
+        }
+      }
+    }
+
+    .form-textbox[name="location_group_name"] {
+      padding-left: 1.25rem;
+    }
+  }
+
+  .form-multi-wrap {
+    .form-item-body {
+      margin-bottom: $qtr4;
+    }
+
+    .form-textbox {
+      float: left;
+      margin-right: $qtr2;
+
+      @include breakpoint($breakpoint-desktop-and-portable) {
+        width: 92%;
+      }
+      @include breakpoint($breakpoint-palm) {
+        width: 85%;
+      }
+
+      // Error display for IP Address groups
+      &.overlapped:not(:focus) {
+        @include box-shadow (inset 0 2px 1px rgba(0,0,0,0.15), 0 0 0 1px $red);
+          // border-color: $red;
+          color: $red;
+      }
+    }
+  }
+
+  .form-multi-inputs-wrap {
+    .form-item-label { }
+    .form-item-body {
+      margin: 0 0 1rem 0;
+
+      @include breakpoint($breakpoint-palm) {
+        overflow: hidden;
+
+        .remove-value-button {
+          display: block;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .form-input-wrapper {
+      position: relative;
+      float: left;
+      margin-right: $qtr4;
+
+      @include breakpoint($breakpoint-desktop){ width: 94%; }
+      @include breakpoint($breakpoint-portable){ width: 90%; }
+
+      &.ifs-object .form-textbox {
+        width: 100%;
+      }
+
+      &.native-object {
+        @include breakpoint($breakpoint-desktop-and-portable) {
+          .form-textbox {
+             width: 33%;
+
+            &.type-input {
+              max-width: 20%;
+              margin: 0;
+            }
+          }
+        }
+
+        @include breakpoint($breakpoint-palm) {
+          @include border-radius(3px);
+          overflow: hidden; // so border radius can display correctly
+          width: 85%;
+          float: left;
+          margin: 0 $qtr2 0 0;
+          border: 1px solid rgba($black, 0.25);
+
+          .form-textbox {
+            @include border-radius(0);
+            width: 100%;
+            margin:0;
+            float: none;
+            border: none; // reset
+            border-bottom: 1px solid rgba($black, 0.25);
+
+            &.type-input {
+              border-bottom: none;
+              width: 75%;
+              float: left;
+            }
+          }
+
+          .select-button {
+            @include border-radius(0);
+            display: block;
+            overflow: hidden;
+            padding: $qtr3 0;
+            width: auto;
+          }
+        }
+
+        input.type-input {
+          @include border-top-right-radius(0);
+          @include border-bottom-right-radius(0);
+        }
+        a.type-input {
+          @include border-top-left-radius(0);
+          @include border-bottom-left-radius(0);
+        }
+      }
+    }
+    .form-textbox {
+      display: block;
+      float: left;
+      margin: 0 $qtr2 0 0;
+    }
+  }
+
+  .form-textarea-wrap {
+    .form-textbox, .form-textbox:disabled {
+      overflow: hidden;
+      padding-bottom: 2rem;
+      resize: none;
+      word-wrap: break-word;
+    }
+  }
+
+  .form-filterable-checkboxes-wrap {
+    .pop-header {
+      position: relative;
+      overflow: visible;
+      padding: 1rem 0rem 2rem 0rem;
+      .label, .checked-count {
+        float: left;
+      }
+      .checked-count {
+        padding-left: 1rem;
+      }
+      .label {
+        padding-left: 0.25rem;
+        font-family: 'Open Sans Bold', Arial, sans-serif;
+        text-shadow: none;
+        float: left;
+      }
+      .check-all {
+        padding: 0.75rem 1.3rem;
+        position: absolute;
+        right: 0.1rem;
+        top: 3.05rem;
+      }
+      .filterable-toggle {
+        float: right;
+        text-decoration: none;
+        color: #0a76be;
+        &:active {
+          color: #0a76be;
+        }
+      }
+    }
+    &.expanded {
+      .check-all, .pop-container {
+        display: none;
+      }
+    }
+
+    .ui-listview-filter {
+      margin: 0rem 8.5rem 0.7rem 0rem;
+      border-bottom: none;
+      .ui-input-text, .ui-input-clear  {
+        padding: 1.3rem !important;
+      }
+      .ui-btn-inner {
+        position: absolute;
+        top: 0.8rem;
+        left: 0.8rem;
+      }
+    }
+    ul li {
+      margin: 0px;
+      &.selected:hover {
+        background-color: #0A76BE !important;
+      }
+      input {
+        position: absolute;
+        left: -9999px;
+        margin: 8px;
+      }
+      .ui-btn-inner {
+        span.ui-icon {
+          display: none !important;
+        }
+      }
+    }
+
+
+  }
+
+  .listview-field {
+
+    ul {
+      @include box-shadow(0 0 0 1px rgba($black, 0.1));
+      @include border-radius(2px);
+      margin-top: $qtr2;
+      overflow: hidden;
+    }
+
+    li {
+      padding: $qtr2;
+      background: none;
+      border: none;
+      cursor: default;
+
+      &:nth-child(even) {
+        background-color: rgba($black, 0.025);
+      }
+
+      &:nth-child(odd) {
+        background-color: rgba($white, 0.9);
+      }
+    }
+
+    .ui-btn-inner {
+      border: none;
+    }
+
+    .ui-btn-text {
+      @include open-sans-regular();
+      @include text-shadow(none);
+      font-weight: normal;
+      color: $black;
+      cursor: default;
+    }
+  }
+}
+
+
+// ===========================================================================
+//  UNUSED
+// ===========================================================================
+//  Setup:
+//  Currently unused styles. There might be future use.
+//
+//
+/* Form Validations */
+// .form-item-container span.error {
+//   color: #950900;
+//   text-shadow: 1px 1px 1px #FFF;
+//   padding: 0.4rem;
+//   font-size: 1rem;
+//   line-height: 1.1rem;
+//   display: block;
+// }
+// .form-item-container .form-item-body.error {}
+// .form-item-container .error input {
+//   background-color: #F7E9E9;
+// }
+
+// .slidebutton-container {
+//   position: relative;
+//   overflow: hidden;
+//   display: inline-block;
+//   vertical-align: middle;
+//   width: auto !important;
+//   font-weight: bold;
+//   border: 1px solid #b3b3b3;
+//   background-color: white;
+//   @include box-shadow(inset 0 0.2rem 0.4rem rgba(0,0,0,0.2));
+//   @include border-radius(0.4rem);
+//   @include text-shadow(0 1px 0 #FFFFFF);
+//   .slidebutton-label {
+//     display: block;
+//     float: left;
+//     text-align: center;
+//     padding: 0.3rem 0.5rem 0.35rem;
+//     font-size: 1rem;
+//   }
+//   .slidebutton-handle {
+//     position: absolute;
+//     top: -1px;
+//     left: -1px;
+//     text-indent: -9999px;
+//     display: block;
+//     background-color: #588DBD;
+//     border: 1px solid #666;
+//     cursor: w-resize;
+//     height: 100%;
+//     @include border-radius(0.4rem);
+//     @include box-shadow(inset 0 0 10px rgba(255, 255, 255, 0.5));
+//     &.slidebutton-active {
+//       background-color: #aaa;
+//     }
+//   }
+// }

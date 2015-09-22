@@ -1,0 +1,242 @@
+// Set up the Product Configuration Page
+.treeview {
+  margin: 0;
+
+  .ui-icon {
+    @include opacity(0.15);
+    &.ui-icon-arrow-r {
+      @include svg_icon_chevron_right(1rem);
+    }
+    &.ui-icon-arrow-l {
+      @include svg_icon_chevron_left(1rem);
+    }
+    &.ui-icon-arrow-d {
+      @include svg_icon_chevron_down(12px);
+    }
+    &.ui-icon-arrow-u {
+      @include svg_icon_chevron_up(12px);
+    }
+  }
+
+
+
+  .icon-left-wrap,
+  .icon-right-wrap { position: absolute; }
+
+  .icon-left-wrap {
+    @include box-shadow(1px 0 0 rgba(255,255,255,0.075));
+    top: 0;
+    left: 0;
+    border-right: 1px solid rgba(0,0,0,0.05);
+
+    @include breakpoint($breakpoint-desktop) { padding: $qtr3; }
+    @include breakpoint($breakpoint-portable) { padding: 0.95rem; }
+    @include breakpoint($breakpoint-palm) { padding: 1.25rem $qtr4; }
+  }
+
+  .icon-right-wrap {
+    @include svg_icon_chevron_right(0.9rem);
+    @include opacity(0.15);
+    top: 50%;
+    right: $qtr1;
+    margin-top: -0.45rem;
+  }
+
+  .ui-btn {
+    @include text-shadow(none);
+    @include open-sans-regular();
+    font-weight: normal; //jQuery UI override
+    border: none;
+    background: none;
+
+    .ui-btn-inner {
+      border: none;
+
+      @include breakpoint($breakpoint-desktop) { padding: 0 0 0 2.5rem; }
+      @include breakpoint($breakpoint-portable) { padding: 0 0 0 2.85rem; }
+      @include breakpoint($breakpoint-palm) { padding: 0 0 0 3rem; }
+
+      .ui-button-text { overflow: auto; }
+
+      .no-checkbox {
+        display: block;
+        overflow: hidden;
+
+        @include breakpoint($breakpoint-desktop) { padding: $qtr3 $qtr4; }
+        @include breakpoint($breakpoint-portable) { padding: 0.85rem 1.25rem 0.85rem 1.25rem; }
+        @include breakpoint($breakpoint-palm) { padding: $qtr3; }
+      }
+    }
+
+    a.ui-link-inherit, .server-info {
+      @include breakpoint($breakpoint-desktop) {
+        font-size: 0.85rem;
+        line-height: 0.85rem;
+      }
+      @include breakpoint($breakpoint-portable) {
+        font-size: 0.9rem;
+        line-height: 1.1rem;
+      }
+      @include breakpoint($breakpoint-palm) {
+        font-size: 0.9rem;
+        line-height: 1.1rem;
+      }
+    }
+  }
+
+
+  // ==*==
+  //
+  .ui-collapsible {
+    padding: 0;
+    border-bottom: 1px solid $gray;
+
+    .header {
+      border-top: 1px solid darken($pt-blue, 10%);
+      border-bottom: 1px solid darken($pt-blue, 10%);
+    }
+
+    .ui-btn {
+      background-color: $pt-blue;
+
+      @include breakpoint($breakpoint-desktop) {
+        &:hover {
+          background-color: darken($pt-blue, 2.5);
+        }
+      }
+      &:active {
+        background-color: darken($pt-blue, 5);
+      }
+    }
+
+    .server-info {
+      color: $off-white;
+
+      > .column:first-child {
+        @include open-sans-bold();
+      }
+    }
+
+    @include breakpoint($breakpoint-desktop) {
+      &:hover .icon-left-wrap {
+        border-right: 1px solid rgba($black, 0.1);
+
+        &:hover,
+        &:active {
+          background-color: rgba($black, 0.025);
+        }
+      }
+    }
+    @include breakpoint($breakpoint-portable-and-palm) {
+      .icon-left-wrap {
+        &:active {
+          background-color: rgba($black, 0.025);
+        }
+      }
+    }
+  }
+
+
+  // This class is removed when list is expanded.
+  // Confusing? Yes. Put expanded class styles
+  // up in .ui-collapsible ( ==*== ).
+  .ui-collapsible-collapsed {
+    border-bottom: none;
+
+    .header {
+      border-bottom: none;
+      border-top: 1px solid rgba($black, 0.2);
+    }
+
+    .server-info { color: $black; }
+  }
+
+
+  .ui-collapsible-content {
+    padding: 0;
+    border: none;
+    overflow: hidden;
+
+    .ui-listview {
+      margin: 0;
+
+      .ui-li {
+        border: none;
+        border-bottom: 1px solid $gray;
+      }
+
+      .ui-btn {
+        background-color: $light-gray;
+
+        @include breakpoint($breakpoint-desktop) {
+          &:hover {
+            background-color: darken($light-gray, 5%);
+          }
+        }
+
+        &.ui-first-child {
+          @include box-shadow(inset 0 4px 3px rgba($black, 0.2));
+        }
+
+        &.ui-last-child {
+          @include box-shadow(inset 0 -2px 6px rgba($black, 0.1));
+          border-bottom: none;
+        }
+
+        &.ui-first-child.ui-last-child {
+          @include box-shadow(inset 0 4px 3px rgba($black, 0.2), inset 0 -2px 6px rgba($black, 0.1));
+        }
+
+        .ui-btn-inner {
+          border: none;
+
+          .ui-link-inherit > .column:first-child {
+            @include open-sans-bold();
+
+            @include breakpoint($breakpoint-desktop) { padding-left: $qtr4; }
+            @include breakpoint($breakpoint-portable) { padding-left: $qtr3; }
+            @include breakpoint($breakpoint-palm) { padding-left: $qtr4; }
+          }
+        }
+      }
+    }
+
+    &.ui-collapsible-content-collapsed {
+      height: 0;
+      display: block;
+    }
+  }
+
+  .functions-container,
+  .ui-collapsible-collapsed {
+    .ui-btn {
+      background-color: $white;
+
+      @include breakpoint($breakpoint-desktop) {
+        &:hover {
+          background-color: darken($white, 5);
+        }
+      }
+
+      &:active {
+        background-color: darken($white, 10);
+      }
+    }
+  }
+
+  .status .column { text-align: center; }
+
+  // Product Defaults list item
+  > .functions-container {
+
+    .ui-btn { @include open-sans-bold(); }
+
+    a.ui-link-inherit, .no-checkbox {
+      @include breakpoint($breakpoint-palm) {
+        padding: $qtr4;
+      }
+    }
+
+    .ui-icon { right: $qtr1; }
+  }
+}

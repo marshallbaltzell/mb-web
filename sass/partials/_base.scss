@@ -1,5 +1,7 @@
 // Base mixin that contains common imports and framework utilities
 
+
+
 // Standard Imports
 @import "breakpoint";
 @import "compass/css3";
@@ -16,145 +18,116 @@ $legacy-support-for-ie7: false;
 $legacy-support-for-ie8: false;
 $legacy-support-for-mozilla: false;  //pre firefox 3.6
 
-//@import "icons/icons";
-
-// Open Sans font
 @import "../lib/font-open-sans/open-sans";
-// included mixins:
-//
-// open-sans-regular
-// open-sans-italic
-// open-sans-bold
-// open-sans-semibold
-// open-sans-light
 
 // standard defaults
+$default-border-radius: 0;
+
 $red:         #BA0E0E;
 $gray:        #CCCCCC;
 $white:       #FFFFFF;
 $green:       #8cc63e;
 $black:       #333333;
 $orange:      #F5D131;
-$rbt-blue:    #1C75BC;// was #17A6DF
+$pt-blue:     #0A76BE;
+$pm-orange:   #F68400;
 $mid-gray:    #999999;
 $dark-blue:   #1B2F3C;
 $dark-gray:   #555555;
 $light-gray:  #f3f3f3;
 $off-white:   #F8F8F8;
 
-$default-font-size: 1rem;
-$default-font-color:  #3B3B3B;
-$default-font-family: 'Open Sans Regular', Arial, sans-serif;
-$default-font-family-light: 'Open Sans Light', Arial, sans-serif;
-$secondary-font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+$qtr4:        1.00rem;
+$qtr3:        0.75rem;
+$qtr2:        0.50rem;
+$qtr1:        0.25rem;
 
-$default-border-radius: 1rem;
-$default-body-background: #EEEEEE;
-$default-nav-background: #25282C;
+$default-font-size:   $qtr4;
+$default-font-color:  $black;
+$default-font-family: 'Open Sans Regular', Arial, sans-serif;
+
+
+//Navigation
+// $nav-background-color: ;
+// $nav-font-color: ;
+// $nav-font-size-heading: ;
+// $nav-line-height-heading: ;
+// $nav-font-size-normal: ;
+// $nav-line-height-normal: ;
+// $nav-separator-color: ;
+
 
 // header
-$header-background-color: #1c75bc;
-$header-font-color: #feffff;
-$header-font-size: 1.6rem;
-$header-line-height: 2rem;
-$header-font-family: $default-font-family;
-$header-text-shadow: none;
-$header-border-top: none;
-$header-border-bottom: 1px solid #0f6297;
-
-// TODO: depreciate these
-  $header-gradient-top: #6FACD5;
-  $header-gradient-bottom: #497BAE;
-  $header-height: 2.9rem;
-  $header-border: 1px solid #CCCCCC;
-  $header-padding: 0.3rem;
-// END TODO
-
-$toolbar-background-color: #dcdee0;
-$toolbar-border-top: 1px solid #eeeff0;
-$toolbar-border-bottom: 1px solid #b0b2b3;
-
-$settings-toolbar-background-color: #1c75bc;
-
-$nav-palm-header-color: $default-nav-background;
-$nav-background-color: $default-nav-background;
-$nav-font-color: #b8babc;
-$nav-font-size-heading: 16px;
-$nav-line-height-heading: 1.8rem;
-$nav-font-size-normal: 12px;
-$nav-line-height-normal: 1.8rem;
-$nav-separator-color: #555555;
-
-// content
-$content-font-color: $default-font-color;
-$content-font-size: 1.14rem;
-$content-line-height: 1.4rem;
-$content-font-family: $default-font-family;
+// $header-font-color: ;
+// $header-font-size: ;
+// $header-line-height: ;
+// $header-font-family: ;
+// $header-border: ;
+// $header-padding: ;
 
 // footer
-$footer-background-color: rgba(113, 178, 206, 0.3);
+// $footer-background-color: ;
 
 // toolbars
-$toolbar-gradient-top: #DFE9F5;
-$toolbar-gradient-bottom: #D3E1F1;
-$tselectionbar-background-color: rgba(113, 178, 206, 0.6);
+// $toolbar-gradient-top: ;
+// $toolbar-gradient-bottom: ;
+// $tselectionbar-background-color: ;
 
 // buttons
-$button-font-color: #444;
-$button-gradient-top: #ededed;
-$button-gradient-bottom: #f1f1f1;
+// $button-font-color: ;
+// $button-gradient-top: ;
+// $button-gradient-bottom: ;
 
 // container constants
-$container-radius: $default-border-radius;
-$container-border-size: 1px;
-$container-shadow-color: 0 3px 8px rgba(0, 0, 0, 0.3);
+// $container-radius: ;
+// $container-border-size: ;
+// $container-shadow-color: ;
 
 // dialog
-$dialog-border-color: #9E9E9E;
+// $dialog-border-color: ;
 
 // grid defaults
-$grid-font-size: 14px;
-$grid-font-color: #000;
+// $grid-font-size: 14px;
+// $grid-font-color: $default-font-color;
 // grid header
-$grid-header-font-family: $header-font-family;
-$grid-header-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-$grid-header-border: 1px solid #CCCCCC !important;
-$grid-header-gradient-top: #F9F9F9;
-$grid-header-gradient-bottom: #E3E4E6;
+// $grid-header-font-family: $default-font-family;
+// $grid-header-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+// $grid-header-border: 1px solid $hue-gray !important;
+// $grid-header-gradient-top: #F9F9F9;
+// $grid-header-gradient-bottom: #E3E4E6;
+
 // grid body
-$grid-body-font-family: $grid-header-font-family;
-$grid-body-border: 1px solid #CCCCCC;
-$grid-body-border-width: 1px solid #CCCCCC;
+// $grid-body-font-family: $default-font-family;
+// $grid-body-border: 1px solid $hue-gray;
+// $grid-body-border-width: 1px solid $hue-gray;
+
 // grid row
-$grid-row-even-color: white;
-$grid-row-odd-color: #EDEDED;
-$grid-row-active-color: #BED6E2;
-$grid-row-hover-color: #D7DFE2;
-$grid-row-active-hover-color: #AACFE0;
+// $grid-row-even-color: $hue-off-white;
+// $grid-row-odd-color: #EDEDED;
+// $grid-row-active-color: #BED6E2;
+// $grid-row-hover-color: #D7DFE2;
+// $grid-row-active-hover-color: #AACFE0;
+
 // grid cell
-$grid-cell-border: 1px solid #FAFAFA;
-$grid-cell-border-color: #FAFAFA transparent #EDEDED;
+// $grid-cell-border: 1px solid #FAFAFA;
+// $grid-cell-border-color: #FAFAFA transparent #EDEDED;
 
 // Forms
-$form-box-border: 1px solid #B9B9B9;
-$form-box-background-color: #EEE;
-$form-item-input-border: 1px solid #b3b3b3;
-$form-item-input-text-shadow: 0 1px 0 #FFFFFF;
+$form-box-border: 1px solid $gray;
+$form-box-background-color: $off-white;
+$form-item-input-border: 1px solid $gray;
+$form-item-input-text-shadow: 0 1px 0 off-white;
 $form-item-input-box-shadow: inset 0 0.2rem 0.4rem rgba(0,0,0,0.2);
 $form-item-input-box-shadow-focus: 0 0 0.8rem #387bbe;
 
 // datatable
-$datatable-row-base-top: #ffffff;
-$datatable-row-base-bottom: #f1f1f1;
-$datatable-row-alternate-top: darken($datatable-row-base-top, 6);
-$datatable-row-alternate-bottom: darken($datatable-row-base-bottom, 6);
-$datatable-row-hover-top: darken($datatable-row-base-top, 10);
-$datatable-row-hover-bottom: darken($datatable-row-base-bottom, 10);
+// $datatable-row-base-top: $hue-off-white;
+// $datatable-row-base-bottom: #f1f1f1;
+// $datatable-row-alternate-top: darken($datatable-row-base-top, 6);
+// $datatable-row-alternate-bottom: darken($datatable-row-base-bottom, 6);
+// $datatable-row-hover-top: darken($datatable-row-base-top, 10);
+// $datatable-row-hover-bottom: darken($datatable-row-base-bottom, 10);
 
-$grouped-datatable-main-background: #f3f3f3;
-$grouped-datatable-main-background-hover: #ededed;
-$grouped-datatable-subitem-background: #e6e6e6;
-$grouped-datatable-subitem-background-hover: #e0e0e0;
 // menus
 
 
@@ -193,31 +166,31 @@ $breakpoint-ipad-retina-portait: ($ipad-dimensions) ($ipad-resolution) (orientat
 
 
 
-// Some mixins for common css issues
+// Some mixing for common css issues
 
 // Remove the default button style.  IE will still shift content by 1px when clicked.
-@mixin removeDefaultButtonStyles {
-  &, &:active, &:focus {
-    border: 0;
-    border-style: none;
-    border-width: 0;
-    outline: 0;
-    outline-style: none;
-    outline-width: 0;
-    background: none;
-    @include box-shadow(none);
-  }
-}
+// @mixin removeDefaultButtonStyles {
+//   &, &:active, &:focus {
+//     border: 0;
+//     border-style: none;
+//     border-width: 0;
+//     outline: 0;
+//     outline-style: none;
+//     outline-width: 0;
+//     background: none;
+//     @include box-shadow(none);
+//   }
+// }
 
 // Use of the calc property
-@mixin calc($property, $expression) {
+@mixin calc ($property, $expression) {
   #{$property}: -moz-calc(#{$expression});
   #{$property}: -o-calc(#{$expression});
   #{$property}: -webkit-calc(#{$expression});
   #{$property}: calc(#{$expression});
 }
 
-@mixin icon($icon) {
+@mixin icon ($icon) {
   @include icon-FontAwesome();
   content: $icon;
 }
@@ -232,7 +205,9 @@ $breakpoint-ipad-retina-portait: ($ipad-dimensions) ($ipad-resolution) (orientat
   -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin center($w, $h, $mw: $w, $mh: $h) {
+
+
+@mixin center ($w, $h, $mw: $w, $mh: $h) {
   position: absolute;
   display: block;
   width: $w;
@@ -244,12 +219,4 @@ $breakpoint-ipad-retina-portait: ($ipad-dimensions) ($ipad-resolution) (orientat
   bottom: 0 !important;
   left: 0 !important;
   margin: auto;
-}
-
-@mixin hs-clearfix() {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
 }

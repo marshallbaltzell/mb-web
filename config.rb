@@ -4,10 +4,10 @@ require 'breakpoint'
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "public/css"
+css_dir = "css"
 sass_dir = "sass"
-images_dir = "public/images"
-javascripts_dir = "public/js"
+images_dir = "images"
+javascripts_dir = "js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
@@ -34,17 +34,17 @@ line_comments = (environment == :production) ? false : true
 
 # Just in case the file goes over the IE limit,
 # split the file into multiple.
-on_stylesheet_saved do |filename|
-    begin
-        result = system('blessc', "css/" + File.basename(filename),'-f')
-        if not result
-            Kernel.exit(false)
-        else
-            puts "Blessed the file, so it will work in older versions of IE."
-        end
-    rescue Exception => e
-        puts "Please install bless.\nsudo npm install -g bless"
-        puts "#{e.backtrace.first}: #{e.message} (#{e.class})", e.backtrace.drop(1).map{|s| "\t#{s}"}
-        Kernel.exit(false)
-    end
-end
+# on_stylesheet_saved do |filename|
+#     begin
+#         result = system('blessc', "css/" + File.basename(filename),'-f')
+#         if not result
+#             Kernel.exit(false)
+#         else
+#             puts "Blessed the file, so it will work in older versions of IE."
+#         end
+#     rescue Exception => e
+#         puts "Please install bless.\nsudo npm install -g bless"
+#         puts "#{e.backtrace.first}: #{e.message} (#{e.class})", e.backtrace.drop(1).map{|s| "\t#{s}"}
+#         Kernel.exit(false)
+#     end
+# end

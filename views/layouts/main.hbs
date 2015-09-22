@@ -8,8 +8,8 @@
         <link rel="icon" href="images/favicon.ico">
 
         <title>Mr Law</title>
-        <!-- <link type="text/css" href="css/main.css" media="screen, projection, print" rel="stylesheet" />
-        <link type="text/css" href="css/styleguide.css" media="screen, projection, print" rel="stylesheet" />
+        <link type="text/css" href="css/main.css" media="screen, projection, print" rel="stylesheet" />
+        <!-- <link type="text/css" href="css/styleguide.css" media="screen, projection, print" rel="stylesheet" />
         <link type="text/css" href="css/schedule.css" media="screen, projection, print" rel="stylesheet" />
         <link type="text/css" href="css/materialize.css" media="screen, projection, print" rel="stylesheet" /> -->
         <!-- <script type="text/javascript" src="js/modernizr/modernizr.js"></script>
@@ -17,36 +17,22 @@
         <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/requirejs/require.js"></script>
         <script type="text/javascript" src="js/custom/custom.js"></script>
-        <script type="text/javascript" src="js/highcharts/highcharts.js"></script>
-        <script type="text/javascript" src="js/highcharts/highcharts.src.js"></script>
-        <script type="text/javascript" src="js/highcharts/highcharts-more.js"></script>
-        <script type="text/javascript" src="js/highcharts/theme.js"></script>
         <script type="text/javascript" src="js/navigation/materialize.js"></script> -->
 
     </head>
     <body>
 
-    <header>
-      {{> nav}}
-      <!-- Navigation -->
-      <!-- Header -->
-    </header>
+      <header>
+        {{> nav}}
+      </header>
 
-    <a id="top">&nbsp;</a>
+      <div class="container">
+        {{{body}}}
+      </div>
 
-    <div class="container">
-
-      {{{body}}}
-
-    </div>
-    <div clas="row">
       <footer>
-        <span class="copyright">© HelpSystems 2015</span>
+        <span class="copyright">© Marshall Baltzell 2015</span>
       </footer>
-    </div>
-    <a class="back-to-top" style="display: inline;" href="#top">
-      <i class="fa fa-chevron-circle-up"></i>
-    </a>
 
     </body>
 </html>

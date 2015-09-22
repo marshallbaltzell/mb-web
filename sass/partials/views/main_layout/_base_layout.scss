@@ -1,0 +1,42 @@
+// ===========================================================================
+//  BASE LAYOUTS
+// ===========================================================================
+//  Setup:
+//  High-level structuring
+//
+//
+main {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $pt-blue;
+
+  &, > * {
+    @include box-sizing(border-box);
+    overflow: hidden;
+  }
+
+  @include breakpoint($breakpoint-desktop-and-portable) {
+    .csscalc & { }
+    .flexbox.no-csscalc &, .flexboxlegacy.no-csscalc.no-flexbox & {
+      @include display-box;
+      @include box-orient(horizontal);
+      @include box-align(stretch);
+    }
+  }
+}
+
+#content,
+#dialog,
+#navigation {
+  width: 100%;
+  height: 100%;
+
+  @include breakpoint($breakpoint-desktop-and-portable) {
+    .csscalc & { }
+    .flexbox.no-csscalc &, .flexboxlegacy.no-csscalc.no-flexbox & {
+      @include box-flex(0);
+    }
+  }
+}
