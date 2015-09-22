@@ -1,0 +1,18 @@
+// Mixins
+// --------------------------
+
+@mixin open-sans-regular() {
+  font-family: 'Open Sans Regular', Arial, sans-serif;
+}
+@mixin open-sans-italic() {
+  font-family: 'Open Sans Italic', Arial, sans-serif;
+}
+@mixin open-sans-bold() {
+  font-family: 'Open Sans Bold', Arial, sans-serif;
+}
+@mixin open-sans-semibold() {
+  font-family: 'Open Sans Semibold', Arial, sans-serif;
+}
+@mixin open-sans-light() {
+  font-family: 'Open Sans Light', Arial, sans-serif;
+}

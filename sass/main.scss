@@ -1,0 +1,123 @@
+/*********************************************************************************
+ * (C) COPYRIGHT HELP/SYSTEMS, L.L.C. 2012
+ * Main Theme for RobotWeb
+ * @author Mark Young
+ */
+
+// Use Compass Reset
+@import "compass/reset";
+// Base import with compass imports and custom mixins, colors, variables
+@import "partials/base";
+// Setup the defaults before all other imports
+@import "partials/defaults";
+// Twitter Bootstrap custom select, datepicker, spinner
+@import "lib/bootstrap/bootstrap";
+// Import Twitter Bootstrap button, paging, labels, and progress bar styles
+@import "lib/twitter-bootstrap/twitter-bootstrap-custom";
+@import "partials/library_overrides/twitter_bootstrap_overrides";
+// Twitter Bootstrap Font Awesome Icons.  If we need IE7 support import that into the IE scss
+@import "lib/font-awesome/font-awesome";
+// Twitter JS Plugin - typeahead.js
+@import "lib/twitter-typeahead/typeahead";
+// jQuery UI
+@import "lib/jquery_ui/jquery_ui";
+@import "partials/library_overrides/jquery_ui_overrides";
+// jQuery Mobile
+@import "lib/jquery_mobile/jquery_mobile";
+@import "partials/library_overrides/jquery_mobile_overrides";
+// jQgrowl Plugin - growl notifications
+//@import "lib/jqgrowl/jqgrowl";
+@import "lib/jqgrowl/custom_jqgrowl";
+// jQuery Loadmask Plugin
+@import "lib/jquery_loadmask/custom_jquery_loadmask";
+// D3 Bullet Graph Visualization
+@import "lib/d3/d3.bullet";
+// datepicker
+@import "lib/datepicker/datepicker";
+
+
+// Customs widgets and views
+@import "partials/icons/icons";
+@import "partials/views/views";
+@import "partials/tables/tables";
+@import "partials/navigation/navigation";
+@import "partials/panel/panel";
+@import "partials/toolbars/toolbars";
+@import "partials/form_elements/form_elements";
+
+// iOS overrides
+@import "partials/ios/_ios";
+
+
+
+//remove text selections by default
+// * {
+//   @include user-select(none);
+// }
+
+html {
+  &, body, div, main, footer, nav, .panel, .panel-header, .panel-footer, .toolbar, .header-text, .column, .btn, .header-btn, .navigation-button, .datatable-content, .datatable-item {
+    @include user-select(none);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+  }
+}
+
+html .selectable-content, .form-control {
+  &, * {
+    @include user-select(text);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: default;
+  }
+}
+
+
+body.print {
+    height: auto !important;
+    width: auto !important;
+    background-color: white;
+    overflow: visible;
+}
+
+.print {
+    main {
+        height: auto !important;
+        width: auto !important;
+        background-color: white;
+    }
+
+    #content, #navigation {
+        display: none;
+    }
+
+    td {
+        white-space: nowrap !important;
+        font-size: 0.8rem;
+        padding: 2px;
+    }
+
+    th {
+        white-space: nowrap !important;
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 2px;
+    }
+
+    table {
+        page-break-inside:auto
+    }
+    tr    {
+        page-break-inside:avoid;
+        page-break-after:auto
+    }
+    thead {
+        display:table-header-group
+    }
+    tfoot {
+        display:table-footer-group
+    }
+}
+
+.print-content {
+    overflow: visible !important;
+}

@@ -1,0 +1,370 @@
+
+{{> sidebar}}
+
+<div class="col-md-9">
+  <h1>Design Elements</h1>
+
+  <!-- start sg section two -->
+  <div class="sg-section">
+    <a name="ui-colors"></a>
+    <h2>UI Colors</h2>
+    <h3>Color Palette</h3>
+    <p>The colors for the Robot interface are typically shades of blue and grays, with the exception of alerts. To keep the styles organized, variables in the <code>_base.scss</code> file contains color information. There are standard defaults, but the vital color information is organized by sections of the UI within the .scss file. </p>
+
+    <h4>Primary Palette</h4>
+
+    <p>These are the colors which are crucial to the first impression. At a glance, these are the most recognizable and are necessary for a consistent experience throughout the entire application. Future enhancements should use and build upon what was created with this palette.</p>
+
+    <div class="row">
+
+      <div class="col-xs-3 col-md-2">
+
+        <div class="swatch-card" style="background-color: #1c75bc;">
+
+          <code>$header-background-color</code>
+
+          <p>#1c75bc</p>
+
+        </div>
+
+        <figure>Color value for the top blue navigation.</figure>
+
+      </div><!-- end one -->
+
+      <div class="col-xs-3 col-md-2">
+
+        <div class="swatch-card" style="background-color: #dcdee0;">
+
+          <code>$toolbar-background-color</code>
+
+          <p class="rev">#dcdee0</p>
+
+        </div>
+
+        <figure>This is the color value for the top toolbar navigation.</figure>
+
+      </div><!-- end two -->
+
+      <div class="col-xs-3 col-md-2">
+
+        <div class="swatch-card" style="background-color: #25282c;">
+
+          <code>$default-nav-background</code>
+
+          <p>#25282c</p>
+
+        </div>
+
+        <figure>Color value for the main side navigation.</figure>
+
+      </div><!-- end three -->
+
+      <div class="col-xs-3 col-md-2">
+
+        <div class="swatch-card" style="background-color: #950900;">
+
+          <p>#950900</p>
+
+        </div>
+
+        <figure>This is a bright color which makes the notification stand out.</figure>
+
+      </div><!-- end four -->
+
+      <div class="col-xs-3 col-md-2">
+
+        <div class="swatch-card" style="background-color: #0f3e63;">
+
+          <p>#0f3e63</p>
+
+        </div>
+
+        <figure>This darker color is used the background of added features.</figure>
+
+      </div><!-- end five -->
+
+      <div class="col-xs-3 col-md-2">
+
+        <div class="swatch-card" style="background-color: #74c30e;">
+
+          <p>#74c30e</p>
+
+        </div>
+
+        <figure>Color value for the important action buttons.</figure>
+
+      </div><!-- end six -->
+
+    </div>
+
+    <h4>Secondary Palette</h4>
+
+    <p>Lists in Robot often provide key visual elements making it easy to see the status. Although they are smaller, the color is very important to accurately represent what needs to be communicated. Often these are shown as circles.</p>
+
+    <p>There is a class of <code>.schedule-module</code> that needs to be included. Nested within that class, are icon classes that give the colored styling of the dots.</p>
+
+    <!-- start example -->
+
+    <div class="datatable grid panel ui-page">
+        <div id="datatable-content" class="panel-content">
+            <div class="sam-panel-wrapper">
+                <div classx="forecast-grid panel sam-panel">
+                    <div class="schedule-module">
+                        <ul class="datatable-ul">
+                        <!-- start first list item -->
+                            <li class="datatable-item sam-forecast even first with-row-action-icon">
+                                <div class="row-action-wrapper grid-item-actions">
+                                <span class="action run fa fa-play" title="Do Job Now"></span>
+                                <span class="action hold fa fa-pause" title="Hold"></span>
+                                <span class="action override fa fa-dot-circle-o" title="Schedule Override"></span>
+                                <span class="action remove-override fa fa-times-circle-o" title="Remove Override"></span>
+                                <span class="action job-history fa fa-archive" title="Job Completion History"></span>
+                                <span class="action where-used fa fa-cogs" title="Where Used"></span>
+                                <span class="action job-flow-diagram">Diagram Job</span>
+                                <span class="action run-with-member fa fa-step-forward" title="Start now with this member"></span><span class="action check-off fa fa-gear" title="Check-off Forecasted Job"></span>
+                                <span class="action properties fa fa-file-o" title="Properties"></span>
+                            </div>
+                            <div class="data-column">
+                                <div class="column column-160px column-mobile-100">
+                                    <span class="job-name non-wrapping-text column column-100 emphasized-text">DATELIST
+                                    </span>
+
+                                    <div class="override-wrapper"></div>
+                                </div>
+                                <div class="column column-100-minus-160px column-mobile-100">
+
+                                        <i class="sam-icon sam-didnt-run"></i>
+                                        <span class="text-label emphasized-text">Didn't Run</span>
+
+
+                                    &nbsp;
+                                </div>
+                            </div>
+                            <div class="date-column">
+                                <span class="non-wrapping-text value">
+                                    07-07 05:00:00
+                                </span>
+                            </div>
+                            <div class="row-action-button" title="Show Actions">
+                                <div class="row-action-icon">
+                                </div>
+                            </div>
+                            </li>
+                            <!-- end first list item -->
+                            <!-- start second list item -->
+                            <li class="datatable-item sam-active even first with-row-action-icon">
+                            <div class="row-action-wrapper grid-item-actions">
+                                <span class="action end fa fa-stop" title="End"></span>
+                                <span class="action hold fa fa-pause" title="Hold"></span>
+                                <span class="action release fa fa-cogs" title="Release"></span>
+                                <span class="action percent fa fa-tasks" title="Percent Complete"></span>
+                                <span class="action job-flow-diagram">Diagram Job</span>
+                                <span class="action completion-history fa fa-archive" title="Job Completion History"></span>
+                                <span class="action log fa fa-sitemap" title="Job Log"></span>
+                                <span class="action job-attributes fa fa-newspaper-o" title="Job Attributes"></span>
+                                <span class="action spooled-file fa fa-fax" title="Job Spooled Files"></span>
+                                <span class="action properties fa fa-file-o" title="Properties"></span>
+                            </div>
+                            <div class="data-column">
+                                <div class="column column-160px column-mobile-100">
+                                    <span class="job-name non-wrapping-text emphasized-text">
+                                        ALWAYSRUN2
+                                    </span>
+                                </div>
+                                <div class="column column-100-minus-160px column-mobile-100">
+                                    <i class="job-history-icon job-history-R"></i>
+                                    <span class="text-label emphasized-text">Running</span>
+                                </div>
+                            </div>
+                            <div class="date-column">
+                                    <span class="non-wrapping-text value">07-07 06:01:04 </span>
+                            </div>
+
+                            <div class="row-action-button" title="Show Actions">
+                                <div class="row-action-icon">
+
+                                </div>
+                            </div>
+                            </li>
+                            <!-- end second list item -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end example -->
+
+    <div class="row">
+
+      <div class="col-xs-3">
+
+        <p class="text-center lead">Running</p>
+
+        <div class="swatch-card">
+
+          <div class="schedule-module img-circle">
+
+            <div class="job-history-icon job-history-R">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p><pre>&lt;i class=&quot;job-history-icon job-history-R&quot;&gt;&lt;/i&gt;</pre></p>
+
+      </div><!-- end two -->
+
+      <div class="col-xs-3">
+
+        <p class="text-center lead">Completed</p>
+
+        <div class="swatch-card">
+
+          <div class="schedule-module img-circle">
+
+            <div class="job-history-icon job-history-C">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p><pre>&lt;i class=&quot;job-history-icon job-history-C&quot;&gt;&lt;/i&gt;</pre></p>
+
+      </div><!-- end four -->
+
+      <div class="col-xs-3">
+
+        <p class="text-center lead">Didn't Run</p>
+
+        <div class="swatch-card">
+
+          <div class= "schedule-module img-circle">
+
+            <div class="sam-icon sam-didnt-run">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p><pre>&lt;i class=&quot;sam-icon sam-didnt-run&quot;&gt;&lt;/i&gt;</pre></p>
+
+      </div><!-- end one -->
+
+      <div class="col-xs-3">
+
+      <p class="text-center lead">Terminated</p>
+
+        <div class="swatch-card">
+
+          <div class="schedule-module img-circle">
+
+            <div class="job-history-icon job-history-T">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p><pre>&lt;i class=&quot;job-history-icon job-history-T&quot;&gt;&lt;/i&gt;</pre></p>
+
+      </div><!-- end three -->
+
+    </div><!-- /row -->
+
+    <h3>Object States</h3>
+    <h4>Various state colors</h4>
+    <h4>Backgroud colors in the UI</h4>
+  </div>
+  <!-- end sg section two -->
+  <!-- start sg section three -->
+  <div class="sg-section">
+    <a name="typography"></a>
+    <h2>Typography</h2>
+    <p>Show typography heirarchy here</p>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section javascript">
+
+    </div>
+    <div class="code-section html">
+
+    </div>
+  </div>
+  <!-- end sg section three -->
+    <!-- start sg section four -->
+  <div class="sg-section">
+    <a name="alerts"></a>
+    <h2>Alerts</h2>
+    <p>Show alert styles</p>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section javascript">
+
+    </div>
+    <div class="code-section html">
+
+    </div>
+  </div>
+  <!-- end sg section four -->
+  <!-- start sg section five -->
+  <div class="sg-section">
+    <a name="animations"></a>
+    <h2>Animations</h2>
+    <p>Show animation styles</p>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section javascript">
+
+    </div>
+    <div class="code-section html">
+
+    </div>
+  </div>
+  <!-- end sg section five -->
+        <!-- start sg section six -->
+  <div class="sg-section">
+    <a name="animations"></a>
+    <h2>Dashboard Charts</h2>
+    <p>Show dashboard chart colors and explanation.</p>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section javascript">
+
+    </div>
+    <div class="code-section html">
+
+    </div>
+  </div>
+  <!-- end sg section six -->
+  <!-- start sg section seven -->
+  <div class="sg-section">
+    <a name="animations"></a>
+    <h2>Data Table</h2>
+    <p>Show datatables and explain styles.</p>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section javascript">
+
+    </div>
+    <div class="code-section html">
+
+    </div>
+  </div>
+  <!-- end sg section seven -->
+
+</div>

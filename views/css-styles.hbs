@@ -1,0 +1,580 @@
+
+{{> sidebar}}
+
+<div class="col-md-9">
+  <h1>CSS Utilitiles</h1>
+  <div class="sg-section">
+    <a name="css-utilities"></a>
+    <a name="responsive-grid"></a>
+    <h2>Project Grid</h2>
+    <p>A great experience is top priority, no matter which device is being used to access Robot. With this in mind, a responsive grid system is the foundation to the UI of Robot.</p>
+    <p>The grid used was custom developed, inspired by Bootstrap. The custom grid allows for organized layouts while keeping things aligned without any unnecessary margins or padding.</p>
+    <p>Both a responsive and fixed grid system are used. To see this in greater detail, helpful variables and mixins can be found in the <code>_grid_columns.scss</code> file</p>
+    <h3>Responsive Grid</h3>
+    <h4>How the Responsive Grid Works</h4>
+    <p>Grid names are in percentages. For example, <code>column-33</code> takes up one third of the grid. To ensure the mobile experience is as intended, adding a <code>column-mobile-100</code> class ensures that content will be a single column for smaller devices.</p>
+
+    <div class="preview-section">
+
+      <div class="column column-33 column-mobile-100 grid-example"><code>.column .column-33 .column-mobile-100</code></div>
+      <div class="column column-33 column-mobile-100 grid-example"><code>.column .column-33 .column-mobile-100</code></div>
+      <div class="column column-33 column-mobile-100 grid-example"><code>.column .column-33 .column-mobile-100</code></div>
+
+    </div>
+
+    <div class="code-section">
+
+      <pre>
+        &lt;div class=&quot;column column-100&quot;&gt;.column .column-100&lt;/div&gt;
+      </pre>
+
+    </div>
+
+    <p>The grid is very precise, a component can be created to the exact percentage. Mixins have been created for every situation. Using the appropriate class name ensures the layout will work as intended.  The grid can be customized to the exact percentage. For example, a <code>column-45</code> would be slightly less than half. A <code>column-55</code> would be placed next to that to create a row that is equal to 100%. </p>
+
+    <div class="preview-section">
+
+      <div class="column column-45 grid-example"><code>.column .column-45</code></div>
+      <div class="column column-55 grid-example"><code>.column .column-55</code></div>
+
+    </div>
+
+    <div class="code-section">
+
+      <pre>
+        &lt;div class=&quot;column column-100&quot;&gt;.column .column-100&lt;/div&gt;
+      </pre>
+
+    </div>
+
+
+    <h4>Class Names</h4>
+
+    <p>Here are the class names to note:</p>
+
+    <ul>
+    <li><code>.column</code> is necessary to include because this class lays the foundation for the gird.</li>
+    <li><code>.column-x</code> - intended for medium sized devices</li>
+    <li><code>.column-mobile-x</code> - intended for mobile and smaller devices</li>
+    <li><code>.column-desktop-x</code> - intended for larger devices like a desktop</li>
+    </ul>
+
+    <h4>The Grid in Action</h4>
+
+    <p>It is easy to create a full width column with the <code>column-100</code> class. Without the classes for mobile and desktop, the grid will follow this format no matter what the device size is.</p>
+
+    <div class="preview-section">
+
+      <div class="column column-100 grid-example"><code>.column .column-100</code></div>
+
+    </div>
+
+    <div class="code-section">
+
+      <pre>
+        &lt;div class=&quot;column column-100&quot;&gt;.column .column-100&lt;/div&gt;
+      </pre>
+
+    </div>
+
+     <p>Creating two equal columns is done with the <code>column-50</code> class. </p>
+
+    <div class="preview-section">
+
+      <div class="column column-50 grid-example"><code>.column .column-50</code></div>
+      <div class="column column-50 grid-example"><code>.column .column-50</code></div>
+
+    </div>
+
+    <div class="code-section">
+
+      <pre>
+        &lt;div class=&quot;column column-50 &quot;&gt;.column .column-50&lt;/div&gt;
+        &lt;div class=&quot;column column-50 &quot;&gt;.column .column-50&lt;/div&gt;
+      </pre>
+
+    </div>
+
+    <p>With classes added for mobile and desktop, there is more flexibility with the gird. This example goes four across on larger screen sizes, two across on medium size devices, and single column on smaller mobile devices.</p>
+
+    <div class="preview-section">
+
+      <div class="column column-desktop-25 column-50 column-mobile-100 grid-example"><code>.column .column-desktop-25 .column-50 .column-mobile-100</code></div>
+      <div class="column column-desktop-25 column-50 column-mobile-100 grid-example"><code>.column .column-desktop-25 .column-50 .column-mobile-100</code></div>
+      <div class="column column-desktop-25 column-50 column-mobile-100 grid-example"><code>.column .column-desktop-25 .column-50 .column-mobile-100</code></div>
+      <div class="column column-desktop-25 column-50 column-mobile-100 grid-example"><code>.column .column-desktop-25 .column-50 .column-mobile-100</code></div>
+
+    </div>
+
+    <div class="code-section">
+
+    <pre>
+&lt;div class=&quot;column column-desktop-25 column-50 column-mobile-100&quot;&gt;.column .column-desktop-25 .column-50 .column-mobile-100&lt;/div&gt;
+&lt;div class=&quot;column column-desktop-25 column-50 column-mobile-100&quot;&gt;.column .column-desktop-25 .column-50 .column-mobile-100&lt;/div&gt;
+&lt;div class=&quot;column column-desktop-25 column-50 column-mobile-100&quot;&gt;.column .column-desktop-25 .column-50 .column-mobile-100&lt;/div&gt;
+&lt;div class=&quot;column column-desktop-25 column-50 column-mobile-100&quot;&gt;.column .column-desktop-25 .column-50 .column-mobile-100&lt;/div&gt;
+    </pre>
+
+    </div>
+
+
+
+    <p></p>
+
+    <h4>Multi-column Options with the Responsive Grid</h4>
+    <p>The robot interface allows for users to customize the dashboard into a multi-column layout, unless user is viewing on a smaller device. This is done using the grid above but to help with styling, there is an additional class used. For example, let's look at the Schedule Module, this follows the grid, but has an additional <code>.sam-panel-wrapper</code> class added for additional style.</p>
+
+    <!-- start code example -->
+    <div class="preview-section">
+      <div class="schedule-module">
+        <div class="datatable grid panel ui-page">
+            <div id="datatable-content" class="panel-content">
+                <div class="sam-panel-wrapper column column-33 column-mobile-100">
+                    <div class="forecast-grid panel sam-panel widget-width-large">
+                        <div class="header">
+                            <h2 class="header-text">Forecasted</h2>
+                            <span class="toolbar">
+                                <a class="forecasted-toobar btn btn-default btn-xs sam-table-button">
+                                    <table>
+                                        <tbody><tr>
+                                            <td>Forecasted</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="forecasted-count badge">1,644</span></td>
+                                        </tr>
+                                    </tbody></table>
+                                </a>
+                            </span>
+                        </div>
+                        <ul class="datatable-ul">
+                            <li class="datatable-item sam-forecast even first with-row-action-icon">
+                                <div class="row-action-wrapper grid-item-actions">
+                                    <span class="action run fa fa-play" title="Do Job Now"></span>
+                                    <span class="action hold fa fa-pause" title="Hold"></span>
+                                    <span class="action override fa fa-dot-circle-o" title="Schedule Override"></span>
+                                    <span class="action remove-override fa fa-times-circle-o" title="Remove Override"></span>
+                                    <span class="action job-history fa fa-archive" title="Job Completion History"></span>
+                                    <span class="action where-used fa fa-cogs" title="Where Used"></span>
+                                    <span class="action job-flow-diagram">Diagram Job</span>
+                                    <span class="action run-with-member fa fa-step-forward" title="Start now with this member"></span>
+                                    <span class="action group-history fa fa-file-text-o" title="Group History"></span>
+                                    <span class="action check-off fa fa-gear" title="Check-off Forecasted Job"></span>
+                                    <span class="action properties fa fa-file-o" title="Properties"></span>
+                                </div>
+                                <div class="data-column">
+                                    <div class="column column-160px column-mobile-100">
+                                        <span class="job-name non-wrapping-text column column-100 emphasized-text">AGENTJOB
+                                        </span>
+
+                                        <div class="override-wrapper">
+                                          <i class="fa override override-N"></i>
+                                          <span class="override-text non-wrapping-text">Run Next</span>
+                                        </div>
+                                    </div>
+                                    <div class="column column-100-minus-160px column-mobile-100">
+
+
+                                        &nbsp;
+                                    </div>
+                                </div>
+                              <div class="date-column">
+                                <span class="non-wrapping-text value">
+                                    07-08 01:41:00
+                                </span>
+                              </div>
+                            <div class="row-action-button" title="Show Actions">
+                              <div class="row-action-icon">
+                              </div>
+                            </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- end grid -->
+                <!-- start grid 2 -->
+
+                <div class="sam-panel-wrapper column column-33 column-mobile-100">
+                  <div class="active-grid panel sam-panel widget-width-large">
+                    <div class="header">
+                    <h2 class="header-text">Active</h2>
+                    <span class="toolbar">
+                      <a class="active-toolbar btn btn-default btn-xs sam-table-button">
+                        <table>
+                          <tbody>
+                          <tr>
+                            <td>Running</td>
+                            <td>Waiting</td>
+                            <td>Delayed</td>
+                          </tr>
+                          <tr>
+                            <td><span class="running-count badge">2</span></td>
+                            <td><span class="waiting-count badge">0</span></td>
+                            <td><span class="delayed-count badge">0</span></td>
+                          </tr>
+                      </tbody>
+                        </table>
+                      </a>
+                    </span>
+                    </div>
+                    <ul class="datatable-ul">
+                      <li class="datatable-item sam-active even first with-row-action-icon">
+                      <div class="row-action-wrapper grid-item-actions">
+                          <span class="action end fa fa-stop" title="End"></span>
+                          <span class="action hold fa fa-pause" title="Hold"></span>
+                          <span class="action release fa fa-cogs" title="Release"></span>
+                          <span class="action percent fa fa-tasks" title="Percent Complete"></span>
+                          <span class="action job-flow-diagram">Diagram Job</span>
+                          <span class="action completion-history fa fa-archive" title="Job Completion History"></span>
+                          <span class="action log fa fa-sitemap" title="Job Log"></span>
+                          <span class="action job-attributes fa fa-newspaper-o" title="Job Attributes"></span>
+                          <span class="action spooled-file fa fa-fax" title="Job Spooled Files"></span>
+                          <span class="action properties fa fa-file-o" title="Properties"></span>
+                      </div>
+                      <div class="data-column">
+                        <div class="column column-160px column-mobile-100">
+                          <span class="job-name non-wrapping-text emphasized-text">
+                              ALWAYSRUN
+                          </span>
+                        </div>
+                        <div class="column column-100-minus-160px column-mobile-100">
+                            <i class="job-history-icon job-history-R"></i>
+                            <span class="text-label emphasized-text">Running</span>
+                        </div>
+                      </div>
+                      <div class="date-column">
+                        <span class="non-wrapping-text value">07-08 01:36:01 </span>
+                      </div>
+
+                      <div class="row-action-button" title="Show Actions">
+                        <div class="row-action-icon">
+
+                        </div>
+                      </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- end grid 2 -->
+                <!-- start grid 3 -->
+                <div class="sam-panel-wrapper column column-33 column-mobile-100">
+                  <div class="completed-grid panel sam-panel widget-width-large">
+                      <div class="header">
+                      <h2 class="header-text">Completed</h2>
+                          <span class="toolbar">
+                              <a class="completed-toolbar btn btn-default btn-xs sam-table-button">
+                                  <table>
+                                      <tbody>
+                                          <tr>
+                                              <td>Completed</td>
+                                              <td>Failed</td>
+                                          </tr>
+                                          <tr>
+                                              <td><span class="completed-count badge">106</span></td>
+                                              <td><span class="failed-count badge">36</span></td>
+                                          </tr>
+                                  </tbody>
+                                  </table>
+                              </a>
+                          </span>
+                      </div>
+                      <ul class="datatable-ul">
+                          <li class="datatable-item sam-completed even first with-row-action-icon">
+                              <div class="row-action-wrapper grid-item-actions">
+                                  <span class="action run fa fa-play" title="Do Job Now"></span>
+                                  <span class="action hold fa fa-pause" title="Hold"></span>
+                                  <span class="action override fa fa-dot-circle-o" title="Schedule Override"></span>
+                                  <span class="action remove-override fa fa-times-circle-o" title="Remove Override"></span>
+                                  <span class="action job-history fa fa-archive" title="Job Completion History"></span>
+                                  <span class="action where-used fa fa-cogs" title="Where Used"></span>
+                                  <span class="action job-flow-diagram">Diagram Job</span>
+                                  <span class="action group-history fa fa-file-text-o" title="Group History"></span>
+                                  <span class="action spooled-file fa fa-fax" title="Job Spooled Files"></span>
+                                  <span class="action details fa fa-newspaper-o" title="Job Completion History Details"></span>
+                                  <span class="action properties fa fa-file-o" title="Properties"></span>
+                              </div>
+                              <div class="data-column">
+                                  <div class="column column-160px column-mobile-100">
+                                      <span class="job-name non-wrapping-text column column-100 emphasized-text">
+                                          AGENTJOB
+                                      </span>
+                                  </div>
+
+                                  <div class="column column-100-minus-160px column-mobile-100">
+                                      <i class="job-history-icon job-history-T"></i>
+                                      <span class="text-label emphasized-text">Terminated</span>
+                                  </div>
+                              </div>
+                              <div class="date-column">
+                                  <span class="non-wrapping-text value">
+                                      07-08 01:36:01
+                                  </span>
+                              </div>
+                              <div class="row-action-button" title="Show Actions">
+                                  <div class="row-action-icon">
+
+                                  </div>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+
+                <!-- end grid 3 -->
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end code example -->
+
+    <p>Here is the basic structure for the example above. The column classes are included but have some wrapping divs for styling purposes.</p>
+
+    <div class="code-section">
+
+    <pre>
+  &lt;div class=&quot;schedule-module&quot;&gt;
+      &lt;div class=&quot;datatable grid panel ui-page&quot;&gt;
+          &lt;div id=&quot;datatable-content&quot; class=&quot;panel-content&quot;&gt;
+              &lt;div class=&quot;sam-panel-wrapper column column-33 column-mobile-100&quot;&gt;
+                  &lt;div class=&quot;forecast-grid panel sam-panel widget-width-large&quot;&gt;
+                      &lt;div class=&quot;header&quot;&gt;
+
+                      &lt;/div&gt;
+                      &lt;ul class=&quot;datatable-ul&quot;&gt;
+                        &lt;li class=&quot;datatable-item sam-forecast even first with-row-action-icon&quot;&gt;
+                            &lt;div class=&quot;row-action-wrapper grid-item-actions&quot;&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class=&quot;data-column&quot;&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class=&quot;date-column&quot;&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class=&quot;row-action-button&quot; title=&quot;Show Actions&quot;&gt;
+
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                      &lt;/ul&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;sam-panel-wrapper column column-33 column-mobile-100&quot;&gt;
+                &lt;div class=&quot;active-grid panel sam-panel widget-width-large&quot;&gt;
+                  &lt;div class=&quot;header&quot;&gt;
+
+                  &lt;/div&gt;
+                  &lt;ul class=&quot;datatable-ul&quot;&gt;
+                    &lt;li class=&quot;datatable-item sam-active even first with-row-action-icon&quot;&gt;
+                        &lt;div class=&quot;row-action-wrapper grid-item-actions&quot;&gt;
+
+                        &lt;/div&gt;
+                        &lt;div class=&quot;data-column&quot;&gt;
+
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;date-column&quot;&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div class=&quot;row-action-button&quot; title=&quot;Show Actions&quot;&gt;
+
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;sam-panel-wrapper column column-33 column-mobile-100&quot;&gt;
+                &lt;div class=&quot;completed-grid panel sam-panel widget-width-large&quot;&gt;
+                    &lt;div class=&quot;header&quot;&gt;
+
+                    &lt;/div&gt;
+                    &lt;ul class=&quot;datatable-ul&quot;&gt;
+                        &lt;li class=&quot;datatable-item sam-completed even first with-row-action-icon&quot;&gt;
+
+                            &lt;div class=&quot;data-column&quot;&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class=&quot;date-column&quot;&gt;
+
+                            &lt;/div&gt;
+                            &lt;div class=&quot;row-action-button&quot; title=&quot;Show Actions&quot;&gt;
+
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+          &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    </pre>
+
+
+
+  </div>
+
+
+  <p>On occasion, there may be a <code>.first-column</code> class added. This is not part of the default UI grid, it comes from a Backbone Framework called Marionette. </p>
+
+  <h3>Fixed Grid</h3>
+
+  <p>For precise placement, the fixed grid often comes in handy. For example, a complex list item used the fixed grid for the many options that are included. Often throughout the UI, fixed grids are used within the responsive grid. Like the responsive grid columns, there is a numerical naming system.</p>
+
+  <p>The fixed grid has a list of widths that have been used in the application. Variables and mixins for the fixed grid can be found in <code>_grid_column.scss</code> There is a variable called <code>$fixed-column-list</code> that has a list of widths.</p>
+
+  <h4>Class Names</h4>
+
+  <p>Here are the class names to note:</p>
+
+  <ul>
+    <li><code>.column</code> like the flexible grid, it is necessary to include.</li>
+    <li><code>.column-xpx</code></li>
+    <li><code>.column-mobile-xpx</code></li>
+    <li><code>.column-100-minus-xpx</code> - intended for desktop and medium sized devices and has the calc function enabled to help ensure pieces fit together</li>
+    <li><code>.column-mobile-100-minus-xpx</code> - intended for mobile and smaller devices that includes the calc function</li>
+  </ul>
+
+  <p>There is the variable for the fixed column list which has all the values that are used. The fixed column mixin includes the calc function:</p>
+
+  <div class="code-section">
+
+    <pre>
+
+    $fixed-column-list: "350" "300" "250" "248" "240" "235" "230" "228" "218" "208" "203" "200" "190" "170" "160" "150" "140" "135" "130" "128" "120" "110" "100" "90" "80" "75" "50" "25" "20" "15";
+
+    @mixin fixed-columns {
+      @each $width in $fixed-column-list {
+        &.column-100-minus-#{$width}px {
+          @include calc(width, "100% - #{$width}px");
+        }
+        &.column-#{$width}px {
+          width: #{$width}px;
+        }
+      }
+    }
+
+    </pre>
+
+    <p>The <code>$width</code> in the list is in the naming convention. For this to work, the <code>$width</code> must be in the <code>$fixed-column-list</code>.</p>
+
+    <div class="preview-section">
+
+      <div class="column column-300px fixed-grid-example clearfix">
+
+      <code>.column .column-300px</code>
+
+      <p>The container is 300px wide. This is an example of fixed columns inside a fixed column wrapper.</p>
+
+        <div class="column column-200px fixed-grid-example">
+
+          <code>.column .column-200px</code>
+
+        </div>
+
+        <div class="column column-100px fixed-grid-example">
+
+          <code>.column .column-100px</code>
+
+        </div>
+
+      </div>
+
+    </div>
+
+      <h5>Mixing Responsive and Fixed with Minus Columns</h5>
+
+      <p>Responsive and fixed grid elements work well together. For precise placement, fixed grid elements are often used in conjunction with the responsive grid. Class names that include the "minus" have some calculation going on with the <code>$width</code>. Basically, the <code>$width</code> is being subtracted from the full width column. A column with the same width as <code>$width</code> will fit next to it. </p>
+
+      <div class="preview-section">
+
+        <div class="column column-100 fixed-grid-example">
+
+        <code>.column .column-100</code>
+
+        <p>The container is 100%. This is an example of the full-width percentage wrapper with fixed grid elements inside.</p>
+
+          <div class="column column-100-minus-80px fixed-grid-example">
+
+            <code>.column column-100-minus-80px</code>
+
+            <p>80 px is bing subtracted from the width.</p>
+
+            <p>Within this div, there is a 160px wide div and another next to it accounting for the 160px which is subtracted from the width.</p>
+
+            <div class="column column-160px">
+
+              <code>.column .column-160px</code>
+
+            </div>
+
+            <div class="column column-100-minus-160px fixed-grid-example">
+
+              <code>.column .column-100-minus-160px</code>
+
+            </div>
+
+          </div>
+
+          <div class="column column-80px fixed-grid-example">
+
+            <code>.column .column-80px</code>
+
+          </div>
+
+        </div>
+
+      </div>
+
+  </div>
+
+
+
+  </div>
+  <!-- end sg section one -->
+  <!-- start sg section two -->
+  <div class="sg-section">
+    <a name="important classes"></a>
+    <h2>Important Classes</h2>
+    <h3>How Classes are Used</h3>
+    <p>To keep things organized and easy recognizable, there are standard id and class names. Wrapping div name is relevant to the component.</p>
+    <p>Example</p>
+    <h4>Navigation Color</h4>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section">
+
+    </div>
+    <h4>Various state colors</h4>
+    <h4>Background colors in the UI</h4>
+  </div>
+  <a id="two"></a>
+  <!-- end sg section two -->
+  <!-- start sg section three -->
+  <div class="sg-section">
+    <a name="variables-mixins"></a>
+    <h2>Variables and Mixins</h2>
+    <p>Variables and Mixins are essential for organized stying and to keep things DRY.</p>
+    <p>Brief overview of mixins:</p>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section javascript">
+      <pre>
+
+      </pre>
+    </div>
+    <div class="code-section html">
+       <pre>
+  &lt;div class=&quot;form-group&quot;&gt;
+  &lt;label for=&quot;numberTypeExample&quot;&gt;Number:&lt;/label&gt;
+  &lt;input name=&quot;numberTypeExample&quot; type=&quot;number&quot; name=&quot;numberType&quot; class=&quot;form-control&quot; placeholder=&quot;&quot; min=&quot;0&quot; max=&quot;200&quot; step=&quot;10&quot; /&gt;
+  &lt;/div&gt;
+      </pre>
+    </div>
+  </div>
+  <!-- end sg section three -->
+
+</div>

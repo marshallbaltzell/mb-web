@@ -1,0 +1,268 @@
+//=================================================
+//    Basic text sizing
+//=================================================
+//    Set your main font size for paragraph
+//
+//    Reference
+//    62.5%  => 10px
+//    68.8%  => 11px
+//    75%    => 12px
+//    81.3%  => 13px
+//    87.5%  => 14px
+//    100%   => 16px
+//    112.5% => 18px
+//    125%   => 20px
+//=================================================
+//    Proportions based on typographic scale
+//    14, 16, 18, 21, 24, 32, 48
+//=================================================
+
+/*
+ * Responsive typography using EMs
+ */
+
+html {
+  @include breakpoint($breakpoint-desktop){
+    font-size: 87.5%;
+    line-height: 1.5em;
+  }
+  @include breakpoint($breakpoint-portable){
+    font-size: 75%;
+    line-height: 1.5em;
+  }
+  @include breakpoint($breakpoint-palm){
+    font-size: 75%;
+    line-height: 1.5em;
+  }
+}
+
+h1 {
+  font-size: 3.4285714285714284em;
+  line-height: 1.3125em;
+}
+
+h2 {
+  font-size: 2.2857142857142856em;
+  line-height: 1.96875em;
+}
+
+h3 {
+  font-size: 1.7142857142857142em;
+  line-height: 1.75em;
+}
+
+h4 {
+  font-size: 1.5em;
+  line-height: 2em;
+}
+
+h5 {
+  font-size: 1.2857142857142858em;
+  line-height: 2.3333333333333335em;
+}
+
+h6 {
+  font-size: 1.1428571428571428em;
+  line-height: 2.625em;
+}
+
+body {
+  font-size: 1.14rem;
+}
+
+p {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+html, body {
+  font-family: $default-font-family;
+  font-weight: normal;
+  color: $default-font-color;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: $default-body-background;
+}
+
+//*, ::after, ::before {
+//  @include box-sizing(border-box);
+//}
+
+body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+// remove the default focus from webkit and firefox
+:focus {
+  outline: none;
+
+}
+
+
+/* Fix jquery mobile bug with radius buttons and controlgroups */
+.ui-controlgroup, .ui-controlgroup-controls, .ui-btn-corner-all {
+  @include background-clip(border-box);
+}
+
+.ui-mobile, .ui-mobile body {
+  height: 100% !important;
+}
+
+// Generic Non-Wrapping text class
+.non-wrapping-text {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.wrapping-text {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+// Light colored text.  Used in label/value pairs.  Or anywhere you do not want text emphasized.
+.light-text {
+  color: #8E9399;
+}
+.emphasized-text {
+  font-size: .9rem !important;
+  line-height: .9rem;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.positive-color {
+  color: #74c30e;
+}
+.negative-color {
+  color: #c3230e;
+}
+
+.right-align-text {
+  text-align: right !important;
+}
+.right-align-text-desktop-and-portable {
+  @include breakpoint($breakpoint-desktop-and-portable) {
+    text-align: right !important;
+  }
+}
+.left-align-text {
+  text-align: left !important;
+}
+.center-align-text {
+  text-align: center !important;
+}
+.center-align-text-desktop-and-portable {
+  @include breakpoint($breakpoint-desktop-and-portable) {
+    text-align: center !important;
+  }
+}
+
+.label-value-pair {
+  padding-right: 4px;
+  .text-label {
+    color: #757575;
+    &.text-label-bold {
+      font-weight: bold;
+      color: #333;
+    }
+  }
+  .text-value {
+    color: #333;
+    &.text-value-bold {
+      font-weight: bold;
+    }
+  }
+}
+
+.ui-hidden {
+  display: none !important;
+}
+
+.ui-invisible {
+  visibility: hidden !important;
+}
+
+// jquery mobile datatable overflows.  Fixes checkboxes overflowing the bounds of the li elements
+.ui-listview > .ui-li {
+  overflow: hidden;
+}
+
+
+/* Generic class for hiding/showing responsive elements */
+@include breakpoint($breakpoint-desktop-and-portable) {
+  .desktop-and-portable-shown {
+    display: block !important;
+  }
+  .desktop-and-portable-hidden {
+    display: none !important;
+  }
+}
+@include breakpoint($breakpoint-palm) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  .mobile-block-shown {
+    display: block !important;
+  }
+  .mobile-inline-shown {
+    display: inline !important;
+  }
+}
+@include breakpoint($breakpoint-palm) {
+  .palm-shown {
+    display: block !important;
+  }
+  .palm-hidden {
+    display: none !important;
+  }
+}
+@include breakpoint($breakpoint-portable) {
+  .portable-shown {
+    display: block !important;
+  }
+  .portable-hidden {
+    display: none !important;
+  }
+}
+@include breakpoint($breakpoint-desktop) {
+  .column-desktop-shown {
+    display: block !important;
+  }
+  .column-desktop-hidden {
+    display: none !important;
+  }
+}
+
+
+
+@include breakpoint($breakpoint-desktop-and-portable) {
+  .mobile-clearfix {
+    display: none;
+  }
+}
+
+@include breakpoint($breakpoint-palm) {
+  .mobile-clearfix {
+    @include clearfix();
+  }
+}
+
+@include breakpoint($breakpoint-desktop-and-portable) {
+  .pull-right-desktop-and-portable {
+    float: right !important;
+  }
+}

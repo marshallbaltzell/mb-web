@@ -1,0 +1,259 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 135.0,
+		"last_filter": "Package Control: in",
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"sass",
+				"SassBeautify"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 116.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/styleguide"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/styleguide/server.js",
+		"/C/xampp/htdocs/styleguide/views/home.hbs",
+		"/C/xampp/htdocs/styleguide/sass/lib/twitter-bootstrap/bootstrap/_mixins.scss",
+		"/C/xampp/htdocs/styleguide/sass/lib/twitter-bootstrap/bootstrap/_variables.scss",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/js/stylesheet_custom/stylesheet-custom.js",
+		"/C/xampp/htdocs/styleguide/js/custom/custom.js",
+		"/C/xampp/htdocs/styleguide/sass/partials/_base.scss",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/styleguide/index.html",
+		"/C/xampp/htdocs/styleguide/js/bootstrap/collapse.js",
+		"/C/xampp/htdocs/index.html",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/sass/styleguide.scss",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/sass/main.scss",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/main.js",
+		"/C/Users/afitzgerald/Desktop/menu.html",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/sass/partials/form_elements/buttons/_button_mixins.scss",
+		"/C/Users/afitzgerald/Desktop/styleguide-test/test-2.html",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/css/styleguide.css",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/robot_app.js",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/js/widgets/action_button_mixin/action_button_mixin.js",
+		"/C/HELPSYS/RobotWeb/mybuild.properties",
+		"/C/HELPSYS/RobotWeb/robot-web/root-app-src/RobotSrc/src/sass/partials/form_elements/buttons/_buttons.scss",
+		"/C/HELPSYS/RobotWeb/robot-web/build-all.xml",
+		"/C/HELPSYS/RobotWeb/robot-web/start_compass.sh",
+		"/C/HELPSYS/RobotWeb/robot-web/Gemfile.lock",
+		"/C/HELPSYS/RobotWeb/robot-web/migrations/V20130509135925__add_admin_user.sql",
+		"/C/HELPSYS/RobotWeb/robot-web/migrations/V1__create_system_settings.sql",
+		"/C/HELPSYS/RobotWeb/robot-web/migrations/create_migration_file.sh",
+		"/C/HELPSYS/RobotWeb/robot-web/build.xml",
+		"/C/Users/afitzgerald/AppData/Roaming/Sublime Text 3/Packages/User/JSLint.sublime-settings",
+		"/C/Users/afitzgerald/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/afitzgerald/Desktop/test2.html",
+		"/C/Users/afitzgerald/Desktop/test2",
+		"/C/Users/afitzgerald/Desktop/test.html",
+		"/C/Users/afitzgerald/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/afitzgerald/.gitconfig"
+	],
+	"find":
+	{
+		"height": 21.0
+	},
+	"find_in_files":
+	{
+		"height": 118.0,
+		"where_history":
+		[
+			"<current file>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"#3b3b3b",
+			"white",
+			".logo",
+			"logo",
+			"fly",
+			"processSystemSettings",
+			"showFirstLogin",
+			"firstLogin",
+			"time",
+			"gradient-vertical",
+			"javascriptc"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"$default-font-color",
+			"$white"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "styleguide.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"robot_",
+				"robot_app.js"
+			],
+			[
+				"robot",
+				"robot_app.js"
+			],
+			[
+				"mainscss",
+				"sass\\main.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 296.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

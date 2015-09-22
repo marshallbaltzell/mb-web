@@ -1,0 +1,9 @@
+{
+    "name": "mbweb",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": ">=4.x",
+        "express-handlebars": ">=2.x"
+    },
+    "engine": "node >= 0.10.x"
+}

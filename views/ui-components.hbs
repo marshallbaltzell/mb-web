@@ -1,0 +1,853 @@
+
+{{> sidebar}}
+
+<div class="col-md-9">
+  <h1>UI Components</h1>
+  <div class="sg-section">
+    <a name="ui-components"></a>
+
+    <h2>Top Navigation</h2>
+    <h3></h3>
+    <h4>Horizontal Blue and Gray Top Menu</h4>
+    <p>Depending where the user is in the interface, the top blue navigation includes features to help with Robot job and scheduling tasks. The gray menu, always below the blue portion, has unique options based on the task of the user. Some features include: refresh link, internal forecasting, print the scheduled activity, forecast details, and job sorting.</p>
+      <ul>
+        <li>Help/Reference Link is always included</li>
+        <li>The toggle arrow allows users to lists at full screen</li>
+        <li>Refresh link and sorting are included throughout the application</li>
+      </ul>
+
+    <p>There is a consistent navigation bar throughout the whole application. Depending on the user's action, the navigation will have the desired options available. For styling purposes, both the blue and grey parts of the the top navigation are wrapped in a div with the classes of <code>.datatable</code>, <code>.grid</code>, <code>.panel</code>, and <code>.ui-page</code>. Within that div, both portions of the navigation are part of the navigation wrapped in the id of <code>#datatable-header</code> and a class of <code>.panel-header-with-toolbar</code>. To separate the two, the blue band is wrapped in a div with a class of <code>.panel-header</code> for the individual blue stying. The other portion is the gray navigation beneath it, which is wrapped in the class of <code>.toolbar</code>.</p>
+
+    <div class="preview-section">
+    <!-- start example -->
+      <div class="datatable grid panel ui-page">
+        <div id="datatable-header" class="panel-header-with-toolbar">
+          <div class="panel-header">
+            <a class="navigation-button"><i class="fa"></i></a>
+            <span class="header-text">
+              <span class="title-subtitle-wrapper">
+                <span class="header-title">Jobs - TRISTAN</span>
+                <span class="header-seperator fa fa-angle-double-right"></span>
+                <span class="header-subtitle">All Jobs</span>
+              </span>
+              <span class="datatable-header-total total-text badge">93</span>
+            </span>
+            <span class="help-link">
+              <span class="btn context-help fa fa-question-circle"></span>
+            </span>
+            <span class="help-link">
+              <span class="btn context-help fa fa-question-circle"></span>
+            </span>
+          </div>
+          <div class="toolbar">
+            <a class="datatable-refresh btn"><i class="fa fa-refresh"></i></a>
+              <div id="datatable-pager" class="ui-pager">
+                <div class="paging-toolbar ui-corner-all ui-controlgroup ui-controlgroup-horizontal" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="horizontal" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+                  <div class="ui-controlgroup-controls">
+                    <div class="paging-previous ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-first-child ui-disabled" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c">
+                      <span class="ui-btn-inner">
+                        <span class="ui-btn-text"><i class="fa fa-backward"></i></span>
+                      </span>
+                    </div>
+                    <div class="ui-select">
+                      <div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-d" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-icon-right">
+                        <span class="ui-btn-inner">
+                          <span class="ui-btn-text">
+                            <span class="paging-current-page ui-disabled">1</span>
+                            </span>
+                          <span class="ui-icon ui-icon-arrow-d ui-icon-shadow">&nbsp;</span>
+                        </span>
+                        <select id="current-page" class="paging-current-page ui-disabled">
+                          <option value="1">1</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="paging-next ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-last-child ui-disabled" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c">
+                      <span class="ui-btn-inner">
+                        <span class="ui-btn-text">
+                          <i class="fa fa-forward"></i>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a class="datatable-toolbar-expand-button btn">
+                <i class="fa"></i>
+              </a>
+              <a class="print-jobs btn" style="position: absolute; left: 175px;" title="Print Jobs">
+                <i class="fa fa-print" title="Print Jobs"></i>
+              </a>
+          </div>
+        </div>
+      </div>
+    <!-- end example -->
+    </div>
+
+    <div class="code-section">
+
+    <pre>
+    &lt;div class=&quot;datatable grid panel ui-page&quot;&gt;
+      &lt;div id=&quot;datatable-header&quot; class=&quot;panel-header-with-toolbar&quot;&gt;
+        &lt;div class=&quot;panel-header&quot;&gt;
+          &lt;a class=&quot;navigation-button&quot;&gt;&lt;i class=&quot;fa&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+          &lt;span class=&quot;header-text&quot;&gt;
+            &lt;span class=&quot;title-subtitle-wrapper&quot;&gt;
+              &lt;span class=&quot;header-title&quot;&gt;Jobs - TRISTAN&lt;/span&gt;
+              &lt;span class=&quot;header-seperator fa fa-angle-double-right&quot;&gt;&lt;/span&gt;
+              &lt;span class=&quot;header-subtitle&quot;&gt;All Jobs&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;span class=&quot;datatable-header-total total-text badge&quot;&gt;93&lt;/span&gt;
+          &lt;/span&gt;
+          &lt;span class=&quot;help-link&quot;&gt;
+            &lt;span class=&quot;btn context-help fa fa-question-circle&quot;&gt;&lt;/span&gt;
+          &lt;/span&gt;
+          &lt;span class=&quot;help-link&quot;&gt;
+            &lt;span class=&quot;btn context-help fa fa-question-circle&quot;&gt;&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;toolbar&quot;&gt;
+          &lt;a class=&quot;datatable-refresh btn&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;div id=&quot;datatable-pager&quot; class=&quot;ui-pager&quot;&gt;
+              &lt;div class=&quot;paging-toolbar ui-corner-all ui-controlgroup ui-controlgroup-horizontal&quot; aria-disabled=&quot;false&quot; data-disabled=&quot;false&quot; data-shadow=&quot;false&quot; data-corners=&quot;true&quot; data-exclude-invisible=&quot;true&quot; data-type=&quot;horizontal&quot; data-mini=&quot;false&quot; data-init-selector=&quot;:jqmData(role='controlgroup')&quot;&gt;
+                &lt;div class=&quot;ui-controlgroup-controls&quot;&gt;
+                  &lt;div class=&quot;paging-previous ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-first-child ui-disabled&quot; data-corners=&quot;true&quot; data-shadow=&quot;true&quot; data-iconshadow=&quot;true&quot; data-wrapperels=&quot;span&quot; data-theme=&quot;c&quot;&gt;
+                    &lt;span class=&quot;ui-btn-inner&quot;&gt;
+                      &lt;span class=&quot;ui-btn-text&quot;&gt;&lt;i class=&quot;fa fa-backward&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-select&quot;&gt;
+                    &lt;div data-corners=&quot;true&quot; data-shadow=&quot;true&quot; data-iconshadow=&quot;true&quot; data-wrapperels=&quot;span&quot; data-icon=&quot;arrow-d&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; class=&quot;ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-icon-right&quot;&gt;
+                      &lt;span class=&quot;ui-btn-inner&quot;&gt;
+                        &lt;span class=&quot;ui-btn-text&quot;&gt;
+                          &lt;span class=&quot;paging-current-page ui-disabled&quot;&gt;1&lt;/span&gt;
+                          &lt;/span&gt;
+                        &lt;span class=&quot;ui-icon ui-icon-arrow-d ui-icon-shadow&quot;&gt;&nbsp;&lt;/span&gt;
+                      &lt;/span&gt;
+                      &lt;select id=&quot;current-page&quot; class=&quot;paging-current-page ui-disabled&quot;&gt;
+                        &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+                      &lt;/select&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;paging-next ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-last-child ui-disabled&quot; data-corners=&quot;true&quot; data-shadow=&quot;true&quot; data-iconshadow=&quot;true&quot; data-wrapperels=&quot;span&quot; data-theme=&quot;c&quot;&gt;
+                    &lt;span class=&quot;ui-btn-inner&quot;&gt;
+                      &lt;span class=&quot;ui-btn-text&quot;&gt;
+                        &lt;i class=&quot;fa fa-forward&quot;&gt;&lt;/i&gt;
+                      &lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;a class=&quot;datatable-toolbar-expand-button btn&quot;&gt;
+              &lt;i class=&quot;fa&quot;&gt;&lt;/i&gt;
+            &lt;/a&gt;
+            &lt;a class=&quot;print-jobs btn&quot; style=&quot;position: absolute; left: 175px;&quot; title=&quot;Print Jobs&quot;&gt;
+              &lt;i class=&quot;fa fa-print&quot; title=&quot;Print Jobs&quot;&gt;&lt;/i&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    </pre>
+
+    </div>
+
+    <!-- start icon example -->
+
+     <a class="datatable-refresh btn" title="Refresh">
+      <i class="fa fa-refresh"></i>
+    </a>
+
+     <p>Individual button components to the navigation are typically wrapped with a custom class name in an anchor tag. These buttons can be added/removed as needed. Other components, like the help link, are spans, semantically named.</p>
+
+    <p>For example, the refresh link in the gray bar looks something like this:</p>
+
+    <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
+
+    <div class="code-section">
+
+      <pre>
+
+&lt;a class=&quot;datatable-refresh btn&quot; title=&quot;Refresh&quot;&gt;
+  &lt;i class=&quot;fa fa-refresh&quot;&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+      </pre>
+
+
+    </div>
+
+
+    <!-- end icon example -->
+
+  </div>
+  <!-- end sg section one -->
+  <!-- start sg section two -->
+  <div class="sg-section clearfix">
+    <h2>Side Navigation</h2>
+    <a name="side-navigation"></a>
+
+    <div class="row">
+
+    <div class="col-md-4 col-xs-12 preview-section clearfix">
+
+      <nav id="navigation">
+        <div class="panel">
+          <div class="panel-header">
+            <div class="rw-logo"></div>
+            <a class="forward-button"><i class="fa"></i></a>
+          </div>
+          <div class="panel-content">
+              <div class="username-wrapper signout non-wrapping-text" style="display: block;">
+                <span class="text-wrapper">
+                  <i class="fa fa-user"></i>
+                  <span class="username">admin</span>, <span class="signout">log out</span>
+                </span>
+              </div>
+              <div class="notifications-wrapper non-wrapping-text" style="display: block;">
+                <span class="text-wrapper">
+                  <i class="fa fa-exclamation-triangle notification-icon"></i>
+                  <span class="navigiation-text">Notifications</span>
+                </span>
+              </div>
+              <ul class="navigation-list">
+                <li>
+                  <div class="nav-section-wrapper server-menu">
+                    <div class="nav-item-wrapper header">
+                      <a href="#Robot/Home">
+                        Robot
+                        <span class="fa fa-chevron-circle-right"></span>
+                      </a>
+                    </div>
+                    <div class="separator"></div>
+                    <ul style="">
+                      <li class="nav-item-wrapper">
+                        <a href="#Robot/Dashboard">
+                          Dashboards
+                          <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li>
+                  <div class="nav-section-wrapper schedule-menu">
+                    <div class="nav-item-wrapper header">
+                      <a href="#Schedule">
+                        Robot SCHEDULE
+                        <span class="fa fa-chevron-circle-right"></span>
+                      </a>
+                    </div>
+
+                    <div id="schedule_system_select">
+                      <div class="system-select-wrapper non-wrapping-text">
+                        <span class="change-system">
+                          <i class="fa fa-exchange"></i>
+                        </span>
+                        <span class="selected-system">TRISTAN</span>
+                      </div>
+                    </div>
+
+                    <div class="separator"></div>
+
+                    <ul style="display: block;">
+                      <li class="nav-item-wrapper">
+                        <a href="#Schedule/Home">
+                          Home
+                          <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item-wrapper selected">
+                        <a href="#Schedule/SAM">
+                          Schedule Activity
+                          <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item-wrapper">
+                        <a href="#Schedule/Jobs">
+                          Jobs
+                          <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item-wrapper">
+                        <a href="#Schedule/Groups">
+                          Groups
+                          <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item-wrapper">
+                        <a href="#Schedule/Reports">
+                          Reports
+                          <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                <div class="nav-section-wrapper nav-heading">
+                  <div class="nav-item-wrapper header">
+                    <a href="#Network/Home">
+                        Robot/NETWORK
+                        <span class="fa fa-chevron-circle-right"></span>
+                    </a>
+                  </div>
+                  <div class="separator"></div>
+                  <ul style="display: none;">
+                    <li class="nav-item-wrapper">
+                      <a href="#Network/Dashboard">
+                          Dashboards
+                          <i class="fa fa-chevron-circle-right"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                </li>
+                <li>
+                  <div class="nav-section-wrapper robot-menu">
+                    <div class="nav-item-wrapper header">
+                      <a href="#Robot">
+                          Server Settings
+                          <span class="fa fa-chevron-circle-right"></span>
+                      </a>
+                    </div>
+
+                    <div class="separator"></div>
+
+                    <ul style="display: none;">
+                      <li class="nav-item-wrapper">
+                        <a href="#Robot/ServerSettings">
+                            Getting Started
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item-wrapper">
+                        <a href="#Robot/Administration">
+                            Admin Settings
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </nav>
+
+    </div><!-- /.col-md-4 -->
+
+    <div class="col-md-8">
+
+      <p>The navigation has a width of 200px. At the 586px breakpoint the interface becomes single column. This side navigation becomes a toggle navigation on smaller screen sizes. The nav has an id of<code>#navigation</code>. The navigation is consists of unordered lists with the class of <code>.navigation-list</code>. </p>
+
+      <h3>Navigation Options</h3>
+      <p>The side navigation includes the main tasks for the Robot software. Users can access dashboards, schedule tasks, make groups of tasks, and more. Each heading in the navigation contains more options options. For example, Robot SCHEDULE slides down to show options of Home, Schedule, Activity, Jobs, Groups and more.</p>
+
+      <h4>Notifications</h4>
+      <p>Located at the top of the side navigation, users can quickly view notifications and address issues quickly. The warning icon is styled with a <code>.notifications-wrapper</code> class. </p>
+
+      <h4>Active State in the Navigation</h4>
+      <p>The blue dot next to the list, signifies the location in the navigation so users know where they are in the navigation tree. In addition to the blue dot, the text is bold to add emphasis. The list items have a class of <code>nav-item-wrapper</code>. This active list item has the additional class of <code>.selected</code> added to it.</p>
+    </div><!-- ./col-md-8 -->
+
+    </div><!-- /.row -->
+
+      <div class="code-section">
+
+      <pre>
+
+      &lt;nav id=&quot;navigation&quot;&gt;
+        &lt;div class=&quot;panel&quot;&gt;
+          &lt;div class=&quot;panel-header&quot;&gt;
+            &lt;div class=&quot;rw-logo&quot;&gt;&lt;/div&gt;
+            &lt;a class=&quot;forward-button&quot;&gt;&lt;i class=&quot;fa&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;panel-content&quot;&gt;
+              &lt;div class=&quot;username-wrapper signout non-wrapping-text&quot; style=&quot;display: block;&quot;&gt;
+                &lt;span class=&quot;text-wrapper&quot;&gt;
+                  &lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;
+                  &lt;span class=&quot;username&quot;&gt;admin&lt;/span&gt;, &lt;span class=&quot;signout&quot;&gt;log out&lt;/span&gt;
+                &lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;notifications-wrapper non-wrapping-text&quot; style=&quot;display: block;&quot;&gt;
+                &lt;span class=&quot;text-wrapper&quot;&gt;
+                  &lt;i class=&quot;fa fa-exclamation-triangle notification-icon&quot;&gt;&lt;/i&gt;
+                  &lt;span class=&quot;navigiation-text&quot;&gt;Notifications&lt;/span&gt;
+                &lt;/span&gt;
+              &lt;/div&gt;
+              &lt;ul class=&quot;navigation-list&quot;&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;nav-section-wrapper server-menu&quot;&gt;
+                    &lt;div class=&quot;nav-item-wrapper header&quot;&gt;
+                      &lt;a href=&quot;#Robot/Home&quot;&gt;
+                        Robot
+                        &lt;span class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/span&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+                    &lt;ul style=&quot;&quot;&gt;
+                      &lt;li class=&quot;nav-item-wrapper&quot;&gt;
+                        &lt;a href=&quot;#Robot/Dashboard&quot;&gt;
+                          Dashboards
+                          &lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+
+                &lt;li&gt;
+                  &lt;div class=&quot;nav-section-wrapper schedule-menu&quot;&gt;
+                    &lt;div class=&quot;nav-item-wrapper header&quot;&gt;
+                      &lt;a href=&quot;#Schedule&quot;&gt;
+                        Robot SCHEDULE
+                        &lt;span class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/span&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+
+                    &lt;div id=&quot;schedule_system_select&quot;&gt;
+                      &lt;div class=&quot;system-select-wrapper non-wrapping-text&quot;&gt;
+                        &lt;span class=&quot;change-system&quot;&gt;
+                          &lt;i class=&quot;fa fa-exchange&quot;&gt;&lt;/i&gt;
+                        &lt;/span&gt;
+                        &lt;span class=&quot;selected-system&quot;&gt;TRISTAN&lt;/span&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+
+                    &lt;ul style=&quot;display: block;&quot;&gt;
+                      &lt;li class=&quot;nav-item-wrapper&quot;&gt;
+                        &lt;a href=&quot;#Schedule/Home&quot;&gt;
+                          Home
+                          &lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item-wrapper selected&quot;&gt;
+                        &lt;a href=&quot;#Schedule/SAM&quot;&gt;
+                          Schedule Activity
+                          &lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item-wrapper&quot;&gt;
+                        &lt;a href=&quot;#Schedule/Jobs&quot;&gt;
+                          Jobs
+                          &lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item-wrapper&quot;&gt;
+                        &lt;a href=&quot;#Schedule/Groups&quot;&gt;
+                          Groups
+                          &lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item-wrapper&quot;&gt;
+                        &lt;a href=&quot;#Schedule/Reports&quot;&gt;
+                          Reports
+                          &lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                &lt;div class=&quot;nav-section-wrapper nav-heading&quot;&gt;
+                  &lt;div class=&quot;nav-item-wrapper header&quot;&gt;
+                    &lt;a href=&quot;#Network/Home&quot;&gt;
+                        Robot/NETWORK
+                        &lt;span class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/span&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+                  &lt;ul style=&quot;display: none;&quot;&gt;
+                    &lt;li class=&quot;nav-item-wrapper&quot;&gt;
+                      &lt;a href=&quot;#Network/Dashboard&quot;&gt;
+                          Dashboards
+                          &lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;
+                      &lt;/a&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;nav-section-wrapper robot-menu&quot;&gt;
+                    &lt;div class=&quot;nav-item-wrapper header&quot;&gt;
+                      &lt;a href=&quot;#Robot&quot;&gt;
+                          Server Settings
+                          &lt;span class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/span&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+
+                    &lt;ul style=&quot;display: none;&quot;&gt;
+                      &lt;li class=&quot;nav-item-wrapper&quot;&gt;
+                        &lt;a href=&quot;#Robot/ServerSettings&quot;&gt;
+                            Getting Started
+                            &lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li class=&quot;nav-item-wrapper&quot;&gt;
+                        &lt;a href=&quot;#Robot/Administration&quot;&gt;
+                            Admin Settings
+                            &lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/nav&gt;
+      </pre>
+
+      </div>
+
+
+  </div>
+  <!-- end sg section two -->
+  <!-- start sg section three -->
+  <div class="sg-section">
+    <h2>Dashboards</h2>
+    <a name="robot-dashboards"></a>
+    <h3>Robot Dashboards View</h3>
+    <p>The Robot dashboard has various features:</p>
+
+    <ul>
+      <li>Search dashboards</li>
+      <li>Access main dashboard list</li>
+      <li>Add dashboard</li>
+      <li>Delete dashboard</li>
+      <li>See current status with quick option to add dashboards</li>
+      <li>See dashboard in greater detail</li>
+      <li> Guest and shared options are included if pertinent to a specific dashboard</li>
+    </ul>
+
+    <p>There is the option to customize the dashboard so it is one column, two columns, three columns, 1st column large with 2nd column small, and 1st column small with 2nd column large. </p>
+
+    <div class="preview-section">
+
+      <div class="form-content">
+
+        <div class="form-item-container">
+          <label for="" class="form-item-label">Layout:</label>
+            <div class="form-item-radio-buttons ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+              <div class="ui-controlgroup-controls">
+                <div class="ui-radio">
+                    <input class="" type="radio" name="layout" id="layout-0" value="1" autocomplete="off">
+                    <label class="ui-radio-off ui-btn ui-btn-corner-all ui-fullsize ui-btn-icon-left ui-first-child ui-btn-up-c" for="layout-0" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" data-mini="false">
+                    <span class="ui-btn-inner">
+                        <span class="ui-btn-text">One Column</span>
+                        <span class="ui-icon ui-icon-radio-off ui-icon-shadow">&nbsp;</span>
+                    </span>
+                    </label>
+                </div>
+                <div class="ui-radio">
+                    <input class="" type="radio" name="layout" id="layout-1" value="2" checked="checked" autocomplete="off">
+                    <label class="ui-radio-on ui-btn ui-btn-corner-all ui-fullsize ui-btn-icon-left ui-btn-up-c" for="layout-1" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-on" data-theme="c" data-mini="false">
+                    <span class="ui-btn-inner"><span class="ui-btn-text">Two Columns</span>
+                    <span class="ui-icon ui-icon-radio-on ui-icon-shadow">&nbsp;</span>
+                    </span>
+                    </label>
+                </div>
+                <div class="ui-radio">
+                    <input class="" type="radio" name="layout" id="layout-2" value="3" autocomplete="off">
+                    <label class="ui-radio-off ui-btn ui-btn-corner-all ui-fullsize ui-btn-icon-left ui-btn-up-c" for="layout-2" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" data-mini="false">
+                    <span class="ui-btn-inner">
+                    <span class="ui-btn-text">Three Columns</span>
+                    <span class="ui-icon ui-icon-radio-off ui-icon-shadow">&nbsp;</span>
+                    </span>
+                    </label>
+                </div>
+                <div class="ui-radio">
+                    <input class="" type="radio" name="layout" id="layout-3" value="4" autocomplete="off">
+                    <label class="ui-radio-off ui-btn ui-btn-up-c ui-btn-corner-all ui-fullsize ui-btn-icon-left" for="layout-3" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" data-mini="false">
+                    <span class="ui-btn-inner">
+                    <span class="ui-btn-text">1st column large, 2nd column small</span>
+                    <span class="ui-icon ui-icon-radio-off ui-icon-shadow">&nbsp;</span>
+                    </span>
+                    </label>
+                </div>
+                <div class="ui-radio">
+                    <input class="" type="radio" name="layout" id="layout-4" value="5" autocomplete="off">
+                    <label class="ui-radio-off ui-btn ui-btn-up-c ui-btn-corner-all ui-fullsize ui-btn-icon-left ui-last-child" for="layout-4" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" data-mini="false">
+                    <span class="ui-btn-inner">
+                    <span class="ui-btn-text">1st column small, 2nd column large</span>
+                    <span class="ui-icon ui-icon-radio-off ui-icon-shadow">&nbsp;</span>
+                    </span>
+                    </label>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p>These dashboard widgets make it easy to see at a glance how things are running. The user can customize the dashboard by having a few or many widgets. The widgets can be moved around to give a custom experience. </p>
+
+    <p>This is an example of a dashboard widget:</p>
+
+    <div class="preview-section">
+
+      <div class="widget widget108 schedule-module large widget-width-large">
+        <div class="panel dashboard-widget widget-108">
+            <div class="widget-message" style="display: none;">Data failed to load.</div>
+              <div class="panel-header">
+                  <span class="header-text">
+                  Status - Scheduler
+                  </span>
+                  <div class="tools">
+                      <a class="widget-config btn">
+                          <i class=""></i>
+                      </a>
+                      <a class="widget-expand btn">
+                          <i class=""></i>
+                      </a>
+                  </div>
+              </div>
+                <div class="widget-graph widget-content panel-content ui-page" style="">
+                    <div class="graph-container system-switcher">
+                    <div class="header-content">
+                        <div class="scheduler-info">
+                            <div class="status">
+                                <h4>TRISTAN</h4>
+                                <span>
+                                    Robot is
+                                </span>
+                                <span class="value">
+                                    <i class="status-icon status-ACTIVE"></i>
+                                    ACTIVE
+                                </span>
+                            </div>
+                            <div class="scheduler-status-stats-wrapper">
+                                <table class="scheduler-status-stats">
+                                    <tbody><tr>
+                                        <td>Last wake-up:</td>
+                                        <td>14:51</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Next wake-up:</td>
+                                        <td>14:56</td>
+                                    </tr>
+                                    <tr class="extra-stats">
+                                        <td>Forecasted:</td>
+                                        <td>1218</td>
+                                    </tr>
+                                    <tr class="extra-stats">
+                                        <td>Running:</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr class="extra-stats">
+                                        <td>Delayed:</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr class="extra-stats">
+                                        <td>Waiting:</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr class="extra-stats">
+                                        <td>Completed:</td>
+                                        <td>1456</td>
+                                    </tr>
+                                    <tr class="extra-stats">
+                                        <td>Failed:</td>
+                                        <td>197</td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="main-chart" data-highcharts-chart="11"><div class="highcharts-container" id="highcharts-76" style="position: relative; overflow: hidden; width: 465px; height: 360px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="465" height="360"><desc>Created with Highcharts 4.1.1</desc><defs><clipPath id="highcharts-77"><rect x="0" y="0" width="378" height="251"></rect></clipPath></defs><rect x="0" y="0" width="465" height="360" strokeWidth="0" fill="#fff" class=" highcharts-background"></rect><rect x="77" y="10" width="378" height="251" fill="#fff"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 77 261.5 L 455 261.5" stroke="rgba(0, 0, 0, .1)" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 77 198.5 L 455 198.5" stroke="rgba(0, 0, 0, .1)" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 77 136.5 L 455 136.5" stroke="rgba(0, 0, 0, .1)" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 77 73.5 L 455 73.5" stroke="rgba(0, 0, 0, .1)" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 77 9.5 L 455 9.5" stroke="rgba(0, 0, 0, .1)" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 202.5 261 L 202.5 271" stroke="#dedede" stroke-width="1" opacity="1"></path><path fill="none" d="M 328.5 261 L 328.5 271" stroke="#dedede" stroke-width="1" opacity="1"></path><path fill="none" d="M 455.5 261 L 455.5 271" stroke="#dedede" stroke-width="1" opacity="1"></path><path fill="none" d="M 76.5 261 L 76.5 271" stroke="#dedede" stroke-width="1" opacity="1"></path><path fill="none" d="M 77 261.5 L 455 261.5" stroke="#dedede" stroke-width="1" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"><text x="24.171875" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 24.171875 135.5)" class=" highcharts-yaxis-title" style="color:#666666;font:normal 12px &quot;HelveticaNeue-Light&quot;,&quot;Helvetica Neue Light&quot;,&quot;Helvetica Neue&quot;,Helvetica,Verdana,Arial,sans-serif;fill:#666666;" visibility="visible" y="135.5">Jobs</text></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-77)"><rect x="32.5" y="98.5" width="61" height="153" stroke="#FFFFFF" stroke-width="1" fill="#606060" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-77)"><rect x="158.5" y="251.5" width="61" height="0" stroke="#FFFFFF" stroke-width="1" fill="#559BF8" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-77)"><rect x="158.5" y="251.5" width="61" height="0" stroke="#FFFFFF" stroke-width="1" fill="#559BF8" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-77)"><rect x="158.5" y="251.5" width="61" height="0" stroke="#FFFFFF" stroke-width="1" fill="#559BF8" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-77)"><rect x="284.5" y="44.5" width="61" height="182" stroke="#FFFFFF" stroke-width="1" fill="#1ACF08" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-77)"><rect x="284.5" y="226.5" width="61" height="25" stroke="#FFFFFF" stroke-width="1" fill="#FD7A7A" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(77,10) scale(1 1)" clip-path="none"></g></g><g class="highcharts-stack-labels" visibility="visible" zIndex="6" transform="translate(77,10)"><text x="63" style="color: gray; font-size: 11px; font-weight: bold; fill: rgb(128, 128, 128); text-shadow: rgb(255, 255, 255) 0px 0px 6px, rgb(255, 255, 255) 0px 0px 3px;" text-anchor="middle" transform="translate(0,0)" y="92"><tspan>1 218</tspan></text><text x="189" style="color: gray; font-size: 11px; font-weight: bold; fill: rgb(128, 128, 128); text-shadow: rgb(255, 255, 255) 0px 0px 6px, rgb(255, 255, 255) 0px 0px 3px;" text-anchor="middle" transform="translate(0,0)" y="245"><tspan>2</tspan></text><text x="315" style="color: gray; font-size: 11px; font-weight: bold; fill: rgb(128, 128, 128); text-shadow: rgb(255, 255, 255) 0px 0px 6px, rgb(255, 255, 255) 0px 0px 3px;" text-anchor="middle" transform="translate(0,0)" y="38"><tspan>1 653</tspan></text></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(77,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(42,162)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>1 218</tspan></text></g><g zIndex="1" style="" transform="translate(184,246)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(310,40)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(77,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(58,246)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(181,229)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>2</tspan></text></g><g zIndex="1" style="" transform="translate(310,40)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(77,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(58,246)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(181,229)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>0</tspan></text></g><g zIndex="1" style="" transform="translate(310,40)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(77,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(58,246)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(181,229)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>0</tspan></text></g><g zIndex="1" style="" transform="translate(310,40)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(77,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(58,246)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(184,246)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(294,122)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>1 456</tspan></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(77,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(58,246)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(184,246)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(300,226)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>197</tspan></text></g></g><g class="highcharts-legend" zIndex="7" transform="translate(62,298)"><g zIndex="1"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><text x="21" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2" y="15"><tspan>Forecasted 1218</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#606060"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(149.53125,3)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Running 2</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#559BF8"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(252.171875,3)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Delayed 0</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#559BF8"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,21)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Waiting 0</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#559BF8"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(105.5625,21)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Completed 1456</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#1ACF08"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(247.15625,21)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Failed 197</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#FD7A7A"></rect></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="140" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:138px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="280" opacity="1">Forecasted</text><text x="266" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:138px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="280" opacity="1">Active</text><text x="392" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:138px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="280" opacity="1">Finished</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="62" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:143px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="264" opacity="1">0</text><text x="62" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:143px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="201" opacity="1">500</text><text x="62" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:143px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="138" opacity="1">1000</text><text x="62" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:143px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="75" opacity="1">1500</text><text x="62" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:143px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="13" opacity="1">2000</text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(0,-9999)"><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"></text></g></svg>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="footer-content">
+                        <span class="system-selection">
+                            <a class="previous-btn"><i class="fa fa-chevron-left"></i></a>
+                            <span class="alias-wrapper">
+                                <span class="alias">TRISTAN</span>
+                                <i class="fa fa-chevron-circle-down"></i>
+                                <select class="alias-select"></select>
+                            </span>
+                            <a class="next-btn"><i class="fa fa-chevron-right"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div><!-- /.preview section -->
+
+  </div>
+  <!-- end sg section three -->
+
+  <!-- start sg section four -->
+  <div class="sg-section">
+    <a name="dashboard-charts"></a>
+    <h2>Dashboard Charts</h2>
+
+
+    <h3>Robot SCHEDULE Dashboards View</h3>
+
+    <p>From this view, user can choose a system with the ability to filter. In the summary dashboard users can see which jobs are forecasted, running, delayed, waiting, and more.</p>
+
+    <p>The widget includes a key at the bottom which makes seeing the status easy with the color coding.</p>
+
+    <div class="preview-section">
+
+      <div class="panel">
+        <div class="panel-content landing-page schedule-homepage">
+          <div class="scheduler-status widget schedule-module medium widget-width-large">
+              <div class="panel dashboard-widget widget-">
+                  <div class="widget-message" style="display: none;">Data failed to load.</div>
+                      <div class="panel-header"><span class="header-text">
+                          Robot SCHEDULE Summary
+                      </span>
+                          <div class="tools">
+                              <a class="widget-config btn">
+                                  <i class=""></i>
+                              </a>
+                              <a class="widget-expand btn">
+                                  <i class=""></i>
+                              </a>
+                          </div>
+                      </div>
+                      <div class="widget-graph widget-content panel-content ui-page" style="">
+                          <div class="graph-container system-switcher">
+                              <div class="header-content">
+                                  <div class="scheduler-info">
+                                      <div class="status">
+                                          <h4>HS55</h4>
+                                          <span>
+                                              Robot is
+                                          </span>
+                                          <span class="value">
+                                              <i class="status-icon status-ACTIVE"></i>
+                                              ACTIVE
+                                          </span>
+                                      </div>
+                                      <div class="scheduler-status-stats-wrapper">
+                                          <table class="scheduler-status-stats">
+                                              <tbody><tr>
+                                                  <td>Last wake-up:</td>
+                                                  <td>12:32</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Next wake-up:</td>
+                                                  <td>12:37</td>
+                                              </tr>
+                                              <tr class="extra-stats">
+                                                  <td>Forecasted:</td>
+                                                  <td>6301</td>
+                                              </tr>
+                                              <tr class="extra-stats">
+                                                  <td>Running:</td>
+                                                  <td>208</td>
+                                              </tr>
+                                              <tr class="extra-stats">
+                                                  <td>Delayed:</td>
+                                                  <td>0</td>
+                                              </tr>
+                                              <tr class="extra-stats">
+                                                  <td>Waiting:</td>
+                                                  <td>1</td>
+                                              </tr>
+                                              <tr class="extra-stats">
+                                                  <td>Completed:</td>
+                                                  <td>4797</td>
+                                              </tr>
+                                              <tr class="extra-stats">
+                                                  <td>Failed:</td>
+                                                  <td>363</td>
+                                              </tr>
+                                          </tbody></table>
+                                      </div>
+                                  </div>
+                                  <div class="main-chart" data-highcharts-chart="9"><div class="highcharts-container" id="highcharts-60" style="position: relative; overflow: hidden; width: 478px; height: 263px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="478" height="263"><desc>Created with Highcharts 4.1.1</desc><defs><clipPath id="highcharts-61"><rect x="0" y="0" width="395" height="154"></rect></clipPath></defs><rect x="0" y="0" width="478" height="263" strokeWidth="0" fill="#fff" class=" highcharts-background"></rect><rect x="73" y="10" width="395" height="154" fill="#fff"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 73 164.5 L 468 164.5" stroke="rgba(0, 0, 0, .1)" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 73 113.5 L 468 113.5" stroke="rgba(0, 0, 0, .1)" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 73 61.5 L 468 61.5" stroke="rgba(0, 0, 0, .1)" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 73 9.5 L 468 9.5" stroke="rgba(0, 0, 0, .1)" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 204.5 164 L 204.5 174" stroke="#dedede" stroke-width="1" opacity="1"></path><path fill="none" d="M 335.5 164 L 335.5 174" stroke="#dedede" stroke-width="1" opacity="1"></path><path fill="none" d="M 467.5 164 L 467.5 174" stroke="#dedede" stroke-width="1" opacity="1"></path><path fill="none" d="M 72.5 164 L 72.5 174" stroke="#dedede" stroke-width="1" opacity="1"></path><path fill="none" d="M 73 164.5 L 468 164.5" stroke="#dedede" stroke-width="1" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"><text x="24.171875" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 24.171875 87)" class=" highcharts-yaxis-title" style="color:#666666;font:normal 12px &quot;HelveticaNeue-Light&quot;,&quot;Helvetica Neue Light&quot;,&quot;Helvetica Neue&quot;,Helvetica,Verdana,Arial,sans-serif;fill:#666666;" visibility="visible" y="87">Jobs</text></g><path fill="none" d="M 138.5 10 L 138.5 164" stroke="rgba(155,200,255,0.2)" stroke-width="321.3333333333333" zIndex="2" visibility="hidden"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-61)"><rect x="33.5" y="25.5" width="64" height="129" stroke="#FFFFFF" stroke-width="1" fill="#606060" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-61)"><rect x="165.5" y="150.5" width="64" height="4" stroke="#FFFFFF" stroke-width="1" fill="#559BF8" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-61)"><rect x="165.5" y="154.5" width="64" height="0" stroke="#FFFFFF" stroke-width="1" fill="#559BF8" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-61)"><rect x="165.5" y="154.5" width="64" height="0" stroke="#FFFFFF" stroke-width="1" fill="#559BF8" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-61)"><rect x="297.5" y="48.5" width="64" height="99" stroke="#FFFFFF" stroke-width="1" fill="#1ACF08" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" style="" clip-path="url(http://robotweb:3030/Robot/#highcharts-61)"><rect x="297.5" y="147.5" width="64" height="7" stroke="#FFFFFF" stroke-width="1" fill="#FD7A7A" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(73,10) scale(1 1)" clip-path="none"></g></g><g class="highcharts-stack-labels" visibility="visible" zIndex="6" transform="translate(73,10)"><text x="66" style="color: gray; font-size: 11px; font-weight: bold; fill: rgb(128, 128, 128); text-shadow: rgb(255, 255, 255) 0px 0px 6px, rgb(255, 255, 255) 0px 0px 3px;" text-anchor="middle" transform="translate(0,0)" y="19"><tspan>6 301</tspan></text><text x="198" style="color: gray; font-size: 11px; font-weight: bold; fill: rgb(128, 128, 128); text-shadow: rgb(255, 255, 255) 0px 0px 6px, rgb(255, 255, 255) 0px 0px 3px;" text-anchor="middle" transform="translate(0,0)" y="144"><tspan>209</tspan></text><text x="329" style="color: gray; font-size: 11px; font-weight: bold; fill: rgb(128, 128, 128); text-shadow: rgb(255, 255, 255) 0px 0px 6px, rgb(255, 255, 255) 0px 0px 3px;" text-anchor="middle" transform="translate(0,0)" y="42"><tspan>5 160</tspan></text></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(73,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(44,77)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>6 301</tspan></text></g><g zIndex="1" style="" transform="translate(193,146)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(325,44)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(73,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(61,149)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(182,132)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>208</tspan></text></g><g zIndex="1" style="" transform="translate(325,44)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(73,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(61,149)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(189,132)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>0</tspan></text></g><g zIndex="1" style="" transform="translate(325,44)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(73,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(61,149)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(189,132)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>1</tspan></text></g><g zIndex="1" style="" transform="translate(325,44)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(73,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(61,149)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(193,149)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(308,85)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>4 797</tspan></text></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(73,10) scale(1 1)" opacity="1" style=""><g zIndex="1" style="" transform="translate(61,149)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(193,149)" opacity="0"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"></text></g><g zIndex="1" style="" transform="translate(314,132)"><text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:white;text-shadow:0 0 3px black;fill:white;" y="16"><tspan>363</tspan></text></g></g><g class="highcharts-legend" zIndex="7" transform="translate(61,201)"><g zIndex="1"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><text x="21" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2" y="15"><tspan>Forecasted 6301</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#606060"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(149.53125,3)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Running 208</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#559BF8"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(267.828125,3)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Delayed 0</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#559BF8"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,21)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Waiting 1</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#559BF8"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(105.5625,21)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Completed 4797</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#1ACF08"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(247.15625,21)"><text x="21" y="15" style="color:#444;font-size:12px;font-weight:bold;cursor:pointer;text-decoration:none;fill:#444;" text-anchor="start" zIndex="2"><tspan>Failed 363</tspan></text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#FD7A7A"></rect></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="138.83333333333331" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:122px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="183" opacity="1">Forecasted</text><text x="270.5" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:122px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="183" opacity="1">Active</text><text x="402.16666666666663" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:122px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="183" opacity="1">Finished</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="58" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:148px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="167" opacity="1">0k</text><text x="58" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:148px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="115" opacity="1">2.5k</text><text x="58" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:148px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="64" opacity="1">5k</text><text x="58" style="color:#666666;cursor:default;font-size:11px;font-weight:normal;fill:#666666;width:148px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="13" opacity="1">7.5k</text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(81,-9999)" opacity="0" visibility="visible"><path fill="none" d="M 3.5 0.5 L 52.5 0.5 58.5 -5.5 64.5 0.5 114 0.5 C 117.5 0.5 117.5 0.5 117.5 3.5 L 117.5 61.5 C 117.5 64.5 117.5 64.5 114.5 64.5 L 3.5 64.5 C 0.5 64.5 0.5 64.5 0.5 61.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)" width="117" height="64"></path><path fill="none" d="M 3.5 0.5 L 52.5 0.5 58.5 -5.5 64.5 0.5 114 0.5 C 117.5 0.5 117.5 0.5 117.5 3.5 L 117.5 61.5 C 117.5 64.5 117.5 64.5 114.5 64.5 L 3.5 64.5 C 0.5 64.5 0.5 64.5 0.5 61.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)" width="117" height="64"></path><path fill="none" d="M 3.5 0.5 L 52.5 0.5 58.5 -5.5 64.5 0.5 114 0.5 C 117.5 0.5 117.5 0.5 117.5 3.5 L 117.5 61.5 C 117.5 64.5 117.5 64.5 114.5 64.5 L 3.5 64.5 C 0.5 64.5 0.5 64.5 0.5 61.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)" width="117" height="64"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 52.5 0.5 58.5 -5.5 64.5 0.5 114 0.5 C 117.5 0.5 117.5 0.5 117.5 3.5 L 117.5 61.5 C 117.5 64.5 117.5 64.5 114.5 64.5 L 3.5 64.5 C 0.5 64.5 0.5 64.5 0.5 61.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#606060" stroke-width="1"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"><tspan style="font-weight:bold">Forecasted</tspan><tspan x="8" dy="15">Forecasted: 6301</tspan><tspan x="8" dy="15">Total: 6301</tspan></text></g></svg></div></div>
+                              </div>
+                          <div class="footer-content">
+                              <span class="system-selection">
+                                  <a class="previous-btn"><i class="fa fa-chevron-left"></i></a>
+                                  <span class="alias-wrapper">
+                                      <span class="alias">HS55</span>
+                                      <i class="fa fa-chevron-circle-down"></i>
+                                      <select class="alias-select"></select>
+                                  </span>
+                                  <a class="next-btn"><i class="fa fa-chevron-right"></i></a>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    </div><!-- end .preview-section -->
+
+    <p>In a column format, the Schedule Activity List provides insight into forecasted, active, and completed jobs.</p>
+
+    <p>Things to note: </p>
+
+    <ul>
+      <li>Quick stats are included on list items. </li>
+      <li>Responsive approach this goes from a 3 column to a 1 column at the 586 breakpoint</li>
+      <li>Modal for job options: Do Job Now...Hold...etc. (Link to Modal Style)</li>
+    </ul>
+
+    <p>Note the item in the black circle on the foretasted column. Also, there are quick stats on active running, waited, and delayed items. There are also stats on the completed and some may have a note for completed and Failed</p>
+    <p>Link to see responsive grid/zebra striping.</p>
+    <p>More Dashboard info to come. </p>
+<!--- end chart -->
+
+    <h3>Chart Types</h3>
+    <h4>Bar Graph</h4>
+    <h5>Legend</h5>
+    <p>Legend explanation goes here.</p>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section">
+
+    </div>
+
+    <h4>Status List</h4>
+    <h5>Basic List</h5>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section">
+
+    </div>
+    <h5>Basic List Activity</h5>
+    <div class="preview-section">
+
+    </div>
+    <div class="code-section">
+
+    </div>
+    <h5>Basic List with Chart</h5>
+     <div class="preview-section">
+
+    </div>
+    <div class="code-section">
+
+    </div>
+     <h5>Basic Job List</h5>
+     <div class="preview-section">
+
+    </div>
+    <div class="code-section">
+
+    </div>
+  </div>
+  <!-- end sg section four -->
+
+</div>
+</div>

@@ -1,0 +1,13 @@
+# ignore bundler and node files
+.bundle
+node_modules
+
+# ignore Compass/Sass related files
+.sass-cache
+*.css.map
+css
+
+# ignore editor related files
+~*
+*.bak
+*.sublime-workspaces
