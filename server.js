@@ -47,8 +47,16 @@ app.get('/', function (req, res) {
     res.render('home');
 });
 
-app.get('/design', function (req, res) {
-    res.render('design');
+app.get('/designs', function (req, res) {
+    res.render('designs');
+});
+
+app.get('/about', function (req, res) {
+    res.render('about');
+});
+
+app.get('/contact', function (req, res) {
+    res.render('contact');
 });
 
 app.listen(3000);
