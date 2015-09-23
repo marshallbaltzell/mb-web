@@ -14,9 +14,13 @@ GEM
 
 PLATFORMS
   java
+  ruby
   x86-mingw32
 
 DEPENDENCIES
   breakpoint (= 2.0.2)
   compass (= 0.12.2)
   sass (= 3.2.12)
+
+BUNDLED WITH
+   1.10.6

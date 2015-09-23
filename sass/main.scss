@@ -16,7 +16,7 @@
   @import "lib/bootstrap/bootstrap";
   @import "lib/bootstrap/bootstrap_custom";
 // Font Awesome Icons.
-  @import "lib/font-awesome/font-awesome";  
+  @import "lib/font-awesome/font-awesome";
 
 // jQuery UI
     // @import "lib/jquery_ui/jquery_ui";
@@ -33,17 +33,18 @@
 
 
 // Library Overrides
-  @import "partials/overrides/overrides";
+    // @import "partials/overrides/overrides";
+
 
 // Custom mixins
   @import "partials/icons/icon_mixins";
 
 // Customs widgets and views
-  @import "partials/panel/panel";
+  // @import "partials/panel/panel";
     // @import "partials/views/views";
-  @import "partials/tables/tables";
+    // @import "partials/tables/tables";
     // @import "partials/toolbars/toolbars";
-  @import "partials/navigation/navigation";
+    // @import "partials/navigation/navigation";
     // @import "partials/form_elements/form_elements";
 
     // @import "partials/form_elements/input_widgets/filterbox";
